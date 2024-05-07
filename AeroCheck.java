@@ -112,8 +112,11 @@ public class AeroCheck {
                 handlingLuggage();
                 break;
             }
-        }
+        } 
+        while (desiredOption != 0);
+
         welcomeScreen(2);
+        return;
     }
 
     private static int getValidInt(Scanner read, String errorMessage) {
