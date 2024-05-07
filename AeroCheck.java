@@ -44,22 +44,22 @@ public class AeroCheck {
                 break;
             }
 
-            if (!restart) {
-                // Exit the program
-                break;
-            }
-
             if (desiredOption == 1) {
                 singlePassengerCheckIn(read);
+                break;
             } else if (desiredOption == 2) {
                 groupPassengerCheckIn(read);
+                break;
             }
 
             if (desiredOption == 0) {
                 System.out.print("\nThank you for using our platform.\n");
                 System.out.print("Do you want to restart? (true/false): ");
                 restart = read.nextBoolean();
-                break;
+                if (!restart) {
+                    // Exit the program
+                    break;
+                }
             }
 
         }
@@ -69,7 +69,7 @@ public class AeroCheck {
 
     private static void singlePassengerCheckIn(Scanner read) {
         System.out.print("\nEnter Full Name: ");
-        String name = read.nextLine();
+        String name = read.next();
 
         System.out.print("\nEnter your Age: ");
         int age = getValidInt(read, "Invalid age. Please enter a valid age.");
@@ -92,6 +92,7 @@ public class AeroCheck {
             break;
         }
         welcomeScreen(2);
+        return;
     }
 
     private static void groupPassengerCheckIn(Scanner read) {
