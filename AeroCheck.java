@@ -1,4 +1,13 @@
-/*import java.time.LocalDate;
+/*
+group assignment for Java OOM COURSEWORK
+
+1) UJJAYRAJ A/L B RAJ MANI RAO = 23092232
+2) CHEN WEI HANG = 23103427
+3) CHOO TING FENG=23064140 
+4) Aakash Pai = 23047350
+*/
+
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.InputMismatchException;
