@@ -25,7 +25,8 @@ public class AeroCheck {
             while (true) {
                 System.out.println("\n\t\t(0) Exit.");
                 System.out.println("\t\t(1) Single Passenger Check-in.");
-                System.out.println("\t\t(2) Group Passenger Check-in.\n\n");
+                System.out.println("\t\t(2) Group Passenger Check-in.");
+                System.out.println("\t\t(3) Special Needs Assistance.\n\n");
                 System.out.print("Enter the desired option: ");
                 try {
                     desiredOption = read.nextInt();
@@ -35,8 +36,8 @@ public class AeroCheck {
                     continue;
                 }
 
-                if (desiredOption < 0 || desiredOption > 2) {
-                    System.out.print("\nERROR!! Please enter value between 0 - 2. Enter the value again.\n");
+                if (desiredOption < 0 || desiredOption > 3) {
+                    System.out.print("\nERROR!! Please enter value between 0 - 3. Enter the value again.\n");
                     continue;
                 }
 
@@ -47,8 +48,14 @@ public class AeroCheck {
             if (desiredOption == 1) {
                 singlePassengerCheckIn(read);
                 break;
-            } else if (desiredOption == 2) {
+            } 
+            if (desiredOption == 2) {
                 groupPassengerCheckIn(read);
+                break;
+            }
+            if (desiredOption == 3)
+            {
+                specialNeedsAssistance(read);
                 break;
             }
 
@@ -71,10 +78,10 @@ public class AeroCheck {
         System.out.print("\nEnter Full Name: ");
         String name = read.next();
 
-        System.out.print("\nEnter your Age: ");
+        System.out.print("Enter your Age: ");
         int age = getValidInt(read, "Invalid age. Please enter a valid age.");
 
-        System.out.print("Your Gender (M/F) ?: ");
+        System.out.print("Your Gender (M/F): ");
         char gender = getValidChar(read, "Invalid gender. Please enter M or F.");
 
         System.out.print("Passport Number: ");
@@ -125,6 +132,10 @@ public class AeroCheck {
         } 
         welcomeScreen(2);
         return;
+    }
+
+    private static void specialNeedsAssistance(Scanner read){
+        welcomeScreen(3);
     }
 
     private static int getValidInt(Scanner read, String errorMessage) {
@@ -195,20 +206,16 @@ public class AeroCheck {
 
         if (option == 1) {
             artWork = """
-
-888       888          888                                              888                        d8888                           .d8888b.  888                        888                  d8888 d8b         888 d8b                            
-888   o   888          888                                              888                       d88888                          d88P  Y88b 888                        888                 d88888 Y8P         888 Y8P                            
-888  d8b  888          888                                              888                      d88P888                          888    888 888                        888                d88P888             888                                
-888 d888b 888  .d88b.  888  .d8888b .d88b.  88888b.d88b.   .d88b.       888888 .d88b.           d88P 888  .d88b.  888d888 .d88b.  888        88888b.   .d88b.   .d8888b 888  888          d88P 888 888 888d888 888 888 88888b.   .d88b.  .d8888b  
-888d88888b888 d8P  Y8b 888 d88P"   d88""88b 888 "888 "88b d8P  Y8b      888   d88""88b         d88P  888 d8P  Y8b 888P"  d88""88b 888        888 "88b d8P  Y8b d88P"    888 .88P         d88P  888 888 888P"   888 888 888 "88b d8P  Y8b 88K      
-88888P Y88888 88888888 888 888     888  888 888  888  888 88888888      888   888  888        d88P   888 88888888 888    888  888 888    888 888  888 88888888 888      888888K         d88P   888 888 888     888 888 888  888 88888888 "Y8888b. 
-8888P   Y8888 Y8b.     888 Y88b.   Y88..88P 888  888  888 Y8b.          Y88b. Y88..88P       d8888888888 Y8b.     888    Y88..88P Y88b  d88P 888  888 Y8b.     Y88b.    888 "88b       d8888888888 888 888     888 888 888  888 Y8b.          X88 
-888P     Y888  "Y8888  888  "Y8888P "Y88P"  888  888  888  "Y8888        "Y888 "Y88P"       d88P     888  "Y8888  888     "Y88P"   "Y8888P"  888  888  "Y8888   "Y8888P 888  888      d88P     888 888 888     888 888 888  888  "Y8888   88888P' 
-                                                                                                                                                                                                                                                  
-                                                                                                                                                                                                                                                  
-                                                                                                                                                                                                                                                  
-                                                                                                                                                                                \s
-                    """;
+888       888          888                                             888                       d8888                           .d8888b.  888                        888     
+888   o   888          888                                             888                      d88888                          d88P  Y88b 888                        888     
+888  d8b  888          888                                             888                     d88P888                          888    888 888                        888     
+888 d888b 888  .d88b.  888  .d8888b .d88b.  88888b.d88b.   .d88b.      888888 .d88b.          d88P 888  .d88b.  888d888 .d88b.  888        88888b.   .d88b.   .d8888b 888  888
+888d88888b888 d8P  Y8b 888 d88P"   d88""88b 888 "888 "88b d8P  Y8b     888   d88""88b        d88P  888 d8P  Y8b 888P"  d88""88b 888        888 "88b d8P  Y8b d88P"    888 .88P
+88888P Y88888 88888888 888 888     888  888 888  888  888 88888888     888   888  888       d88P   888 88888888 888    888  888 888    888 888  888 88888888 888      888888K 
+8888P   Y8888 Y8b.     888 Y88b.   Y88..88P 888  888  888 Y8b.         Y88b. Y88..88P      d8888888888 Y8b.     888    Y88..88P Y88b  d88P 888  888 Y8b.     Y88b.    888 "88b
+888P     Y888  "Y8888  888  "Y8888P "Y88P"  888  888  888  "Y8888       "Y888 "Y88P"      d88P     888  "Y8888  888     "Y88P"   "Y8888P"  888  888  "Y8888   "Y8888P 888  888
+            """;
+        System.out.println(artWork);
         } else if (option == 2) {
             artWork = """
 
@@ -225,7 +232,24 @@ Y88b  d88P 888  888 Y8b.     Y88b.    888 "88b       888 888  888      Y88b  d88
                                                                                                                                                                    
 
                     """;
-            System.out.println(artWork);
+        System.out.println(artWork);
+        } else if (option == 3) {
+            artWork = """
+                \n\n
+                888    888          888              d8b                                    888    888                                                       888
+                888    888          888              Y8P                                    888    888                                                       888
+                888    888          888                                                     888    888                                                       888
+                8888888888  .d88b.  888 88888b.      888 .d8888b       .d88b.  88888b.      888888 88888b.   .d88b.      888  888  888  8888b.  888  888     888
+                888    888 d8P  Y8b 888 888 "88b     888 88K          d88""88b 888 "88b     888    888 "88b d8P  Y8b     888  888  888     "88b 888  888     888
+                888    888 88888888 888 888  888     888 "Y8888b.     888  888 888  888     888    888  888 88888888     888  888  888 .d888888 888  888     Y8P
+                888    888 Y8b.     888 888 d88P     888      X88     Y88..88P 888  888     Y88b.  888  888 Y8b.         Y88b 888 d88P 888  888 Y88b 888      " 
+                888    888  "Y8888  888 88888P"      888  88888P'      "Y88P"  888  888      "Y888 888  888  "Y8888       "Y8888888P"  "Y888888  "Y88888     888
+                                        888                                                                                                          888        
+                                        888                                                                                                     Y8b d88P        
+                                        888                                                                                                      "Y88P"         
+            """;
+        System.out.println(artWork);
         }
+
     }
 }
