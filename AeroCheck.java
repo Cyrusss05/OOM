@@ -1,5 +1,5 @@
 /*
-group assignment for Java OOM COURSEWORK
+group assignment for Java OOM COURSEWORK 1
 
 1) UJJAYRAJ A/L B RAJ MANI RAO = 23092232
 2) CHEN WEI HANG = 23103427
