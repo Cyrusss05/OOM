@@ -107,8 +107,6 @@ public class AeroCheck
             }
         } 
         while (desiredOption != 0);
-
-        welcomeScreen(2);
         return;
     }
 
