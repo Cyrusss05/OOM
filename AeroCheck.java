@@ -88,7 +88,7 @@ public class AeroCheck {
         System.out.println("\t\tDo you want your luggage(s) to be handled? (Y/N)");
         char handleLuggage = read.next().charAt(0);
         while (handleLuggage == 'Y' || handleLuggage == 'y') {
-            handlingLuggage();
+            handlingLuggage(read);
             break;
         }
         welcomeScreen(2);
@@ -118,12 +118,10 @@ public class AeroCheck {
 
             char handleLuggage = read.next().charAt(0);
             while (handleLuggage == 'Y' || handleLuggage == 'y') {
-                handlingLuggage();
+                handlingLuggage(read);
                 break;
             }
         } 
-        while (desiredOption != 0);
-
         welcomeScreen(2);
         return;
     }
@@ -179,16 +177,15 @@ public class AeroCheck {
         }
     }
 
-    private static void handlingLuggage() {
-        Scanner read1 = new Scanner(System.in);
+    private static void handlingLuggage(Scanner read) {
         System.out.println("\t\tPlease place your luggage(s) on the weighing scale");
         System.out.println("\t\tPress any key to Continue.");
-        read1.next();
+        read.next();
         System.out.println("\t\tProcessing Weight...");
         System.out.println("\t\tPrinting baggage tag...");
         System.out.println("\t\tCompleted.\n");
         System.out.println("\t\tPress any key to Continue.");
-        read1.next();
+        read.next();
         System.out.println();
     }
 
@@ -231,5 +228,3 @@ Y88b  d88P 888  888 Y8b.     Y88b.    888 "88b       888 888  888      Y88b  d88
         }
     }
 }
-
-*/
