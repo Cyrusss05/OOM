@@ -5,7 +5,7 @@ group assignment for Java OOM COURSEWORK 1
 2) CHEN WEI HANG = 23103427
 3) CHOO TING FENG=23064140 
 4) Aakash Pai = 23047350
-*/
+
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -13,7 +13,7 @@ import java.time.format.DateTimeParseException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class AeroCheck {
+public class AeroCheckOld {
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in);
         boolean restart = true;
@@ -253,3 +253,5 @@ Y88b  d88P 888  888 Y8b.     Y88b.    888 "88b       888 888  888      Y88b  d88
 
     }
 }
+
+*/
