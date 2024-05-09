@@ -19,6 +19,9 @@ public class AeroCheck {
             case 2:
                 handleGroupPassenger(scanner);
                 break;
+            case 3:
+                welcomeScreen(3);
+                break;
             case 0:
                 System.out.println("\nExiting AeroCheck AirLines. Have a great day!\n");
                 break;
@@ -160,9 +163,9 @@ public class AeroCheck {
             passenger.setPassportNumber(passportNumber);
     
             System.out.print("Date of Flight (dd/mm/yyyy) of Passenger " + (i + 1) + ": ");
-            String dateOfFlight = scanner.next();
-            passenger.setDateOfFlight(dateOfFlight);
-    
+            LocalDate dateOfFlight = getValidDate(scanner, "invalid");
+
+            
             passenger.displayPassengerDetails();
     
             System.out.println("\t\tDo you want your luggage(s) to be handled? (Y/N)");
@@ -192,17 +195,17 @@ public class AeroCheck {
 
         if (option == 1) {
             artWork = """
-                888       888          888                                             888                       d8888                           .d8888b.  888                        888     
-                888   o   888          888                                             888                      d88888                          d88P  Y88b 888                        888     
-                888  d8b  888          888                                             888                     d88P888                          888    888 888                        888     
-                888 d888b 888  .d88b.  888  .d8888b .d88b.  88888b.d88b.   .d88b.      888888 .d88b.          d88P 888  .d88b.  888d888 .d88b.  888        88888b.   .d88b.   .d8888b 888  888
-                888d88888b888 d8P  Y8b 888 d88P"   d88""88b 888 "888 "88b d8P  Y8b     888   d88""88b        d88P  888 d8P  Y8b 888P"  d88""88b 888        888 "88b d8P  Y8b d88P"    888 .88P
-                88888P Y88888 88888888 888 888     888  888 888  888  888 88888888     888   888  888       d88P   888 88888888 888    888  888 888    888 888  888 88888888 888      888888K 
-                8888P   Y8888 Y8b.     888 Y88b.   Y88..88P 888  888  888 Y8b.         Y88b. Y88..88P      d8888888888 Y8b.     888    Y88..88P Y88b  d88P 888  888 Y8b.     Y88b.    888 "88b
-                888P     Y888  "Y8888  888  "Y8888P "Y88P"  888  888  888  "Y8888       "Y888 "Y88P"      d88P     888  "Y8888  888     "Y88P"   "Y8888P"  888  888  "Y8888   "Y8888P 888  888
+888       888          888                                             888                       d8888                           .d8888b.  888                        888     
+888   o   888          888                                             888                      d88888                          d88P  Y88b 888                        888     
+888  d8b  888          888                                             888                     d88P888                          888    888 888                        888     
+888 d888b 888  .d88b.  888  .d8888b .d88b.  88888b.d88b.   .d88b.      888888 .d88b.          d88P 888  .d88b.  888d888 .d88b.  888        88888b.   .d88b.   .d8888b 888  888
+888d88888b888 d8P  Y8b 888 d88P"   d88""88b 888 "888 "88b d8P  Y8b     888   d88""88b        d88P  888 d8P  Y8b 888P"  d88""88b 888        888 "88b d8P  Y8b d88P"    888 .88P
+88888P Y88888 88888888 888 888     888  888 888  888  888 88888888     888   888  888       d88P   888 88888888 888    888  888 888    888 888  888 88888888 888      888888K 
+8888P   Y8888 Y8b.     888 Y88b.   Y88..88P 888  888  888 Y8b.         Y88b. Y88..88P      d8888888888 Y8b.     888    Y88..88P Y88b  d88P 888  888 Y8b.     Y88b.    888 "88b
+888P     Y888  "Y8888  888  "Y8888P "Y88P"  888  888  888  "Y8888       "Y888 "Y88P"      d88P     888  "Y8888  888     "Y88P"   "Y8888P"  888  888  "Y8888   "Y8888P 888  888
                             """;
         }
-        else {
+        if (option == 2) {
             artWork ="""
 
  .d8888b.  888                        888            d8b                .d8888b.                                                       .d888          888      888 
@@ -218,6 +221,22 @@ Y88b  d88P 888  888 Y8b.     Y88b.    888 "88b       888 888  888      Y88b  d88
                                                                                                                                                                    
 
                     """;
+        }
+        else {
+            artWork = """
+                \n\n
+888    888          888              d8b                                    888    888                                                       888
+888    888          888              Y8P                                    888    888                                                       888
+888    888          888                                                     888    888                                                       888
+8888888888  .d88b.  888 88888b.      888 .d8888b       .d88b.  88888b.      888888 88888b.   .d88b.      888  888  888  8888b.  888  888     888
+888    888 d8P  Y8b 888 888 "88b     888 88K          d88""88b 888 "88b     888    888 "88b d8P  Y8b     888  888  888     "88b 888  888     888
+888    888 88888888 888 888  888     888 "Y8888b.     888  888 888  888     888    888  888 88888888     888  888  888 .d888888 888  888     Y8P
+888    888 Y8b.     888 888 d88P     888      X88     Y88..88P 888  888     Y88b.  888  888 Y8b.         Y88b 888 d88P 888  888 Y88b 888      " 
+888    888  "Y8888  888 88888P"      888  88888P'      "Y88P"  888  888      "Y888 888  888  "Y8888       "Y8888888P"  "Y888888  "Y88888     888
+                        888                                                                                                          888        
+                        888                                                                                                     Y8b d88P        
+                        888                                                                                                      "Y88P"         
+            """;
         }
         System.out.println(artWork);
     }
