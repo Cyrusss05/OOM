@@ -20,9 +20,6 @@ public class AeroCheck{
             case 2:
                 handleGroupPassenger(scanner);
                 break;
-            case 3:
-                art.welcomeScreen(3);
-                break;
             case 0:
                 System.out.println("\nExiting AeroCheck AirLines. Have a great day!\n");
                 break;
@@ -39,13 +36,12 @@ public class AeroCheck{
         while (true) {
             System.out.println("\n\n\t\t(0) Exit.");
             System.out.println("\t\t(1) Single Passenger Check-in.");
-            System.out.println("\t\t(2) Group Passenger Check-in.");
-            System.out.println("\t\t(3) Special Needs Assistance.\n\n");
+            System.out.println("\t\t(2) Group Passenger Check-in.\n\n");
             System.out.print("Enter the desired option:    ");
             try {
                 desiredOption = scanner.nextInt();
-                if (desiredOption < 0 || desiredOption > 3) {
-                    System.out.print("\nERROR!! Please enter value between 0 - 3. Enter the value again.\n");
+                if (desiredOption < 0 || desiredOption > 2) {
+                    System.out.print("\nERROR!! Please enter value between 0 - 2. Enter the value again.\n");
                     continue;
                 }
                 break;
@@ -105,6 +101,16 @@ public class AeroCheck{
         if (Character.toUpperCase(handleLuggage) == 'Y') {
             LuggageHandler.handleLuggage(scanner); // Call handleLuggage with scanner
         }
+
+        System.out.println("Do you need special needs assistance? (Y/N): ");
+        String specialNeeds = scanner.next();
+        if (Character.toUpperCase(specialNeeds.charAt(0)) == 'Y') {
+            specialNeedsAssistance();
+            scanner.nextLine(); // Consume the newline character
+        } else{
+            return;
+        }
+
         art.welcomeScreen(2);
     }
 
@@ -176,8 +182,46 @@ public class AeroCheck{
             if (Character.toUpperCase(handleLuggage) == 'Y') {
                 LuggageHandler.handleLuggage(scanner); // Call handleLuggage with scanner
             }
+
+            specialNeedsAssistance();
         }
         art.welcomeScreen(2);
+    }
+
+    private static void specialNeedsAssistance()
+    {
+        Artwork art = new Artwork();
+        //  Handle special needs
+        Scanner scanner = new Scanner(System.in);
+        int snOptions;
+        while (true) {
+            System.out.println("\n\n\t\t(0) Return to check-in.");
+            System.out.println("\t\t(1) Wheelchair Assistance.\n\n");
+            System.out.print("Enter the desired option:    ");
+            try {
+                snOptions = scanner.nextInt();
+                if (snOptions < 0 || snOptions > 1) {
+                    System.out.print("\nERROR!! Please enter value between 0 - 1. Enter the value again.\n");
+                    continue;
+                }
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("\nInvalid input. Please enter a valid value.\n");
+                scanner.nextLine(); // Consume the invalid input
+            }
+        }
+        switch (snOptions) {
+
+            case 1:
+                art.welcomeScreen(3);
+                System.out.println("Please wait patiently for our staff to locate to you.");
+                break;
+            case 0:
+                break;
+            default:
+                System.out.println("\nInvalid option. Please enter a valid option.\n");
+                break;
+        }
     }
 
     private static LocalDate getValidDate(Scanner read, String errorMessage) {
