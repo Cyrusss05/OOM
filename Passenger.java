@@ -7,7 +7,7 @@ public class Passenger {
     private LocalDate dateOfFlight;
 
     public void displayPassengerDetails() {
-        System.out.println("\nPassenger details are as follows:\nName:\t" + name + "\nAge:\t" + age + " years old." + "\nGender:\t" + gender + "\nPassport Number:\t" + passportNumber + "\nDate of Flight:\t" + dateOfFlight);
+        System.out.println("\n\nName:\t" + name + "\nAge:\t" + age + " years old." + "\nGender:\t" + gender + "\nPassport Number:\t" + passportNumber + "\nDate of Flight (yyyy/mm/dd):\t\n\n" + dateOfFlight);
     }
 
     // Getters and setters

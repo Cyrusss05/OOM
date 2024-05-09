@@ -57,65 +57,81 @@ public class AeroCheck{
         Artwork art = new Artwork();
         // Handle single passenger check-in
         Passenger passenger = new Passenger();
-            System.out.print("Enter Full Name: ");
-            passenger.setName(scanner.next());
+        System.out.print("Enter Full Name: ");
+        passenger.setName(scanner.next());
+
+        while (true) {
+        System.out.print("Age: ");
+           try {
+            int age = scanner.nextInt();
+            if (age <= 0) {
+                System.out.println("Age must be a positive integer.");
+                continue;
+            }
+            passenger.setAge(age);
+            break;
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid age.");
+                scanner.nextLine(); // Consume the invalid input
+            }
+        }
     
-            while (true) {
-                System.out.print("Age: ");
-                try {
-                    int age = scanner.nextInt();
-                    if (age <= 0) {
-                        System.out.println("Age must be a positive integer.");
-                        continue;
+        scanner.nextLine(); // Consume the newline character
+    
+        System.out.print("Gender (M/F): ");
+        String genderInput = scanner.nextLine().toUpperCase();
+        while (!genderInput.equals("M") && !genderInput.equals("F")) {
+            System.out.println("Invalid input. Please enter M or F.");
+            System.out.print("Gender of Passenger (M/F): ");
+            genderInput = scanner.nextLine().toUpperCase();
+        }
+        passenger.setGender(genderInput.charAt(0));
+    
+        System.out.print("Passport Number: ");
+        String passportNumber = scanner.next();
+        passenger.setPassportNumber(passportNumber);
+
+        System.out.print("Date of Flight (dd/mm/yyyy): ");
+        LocalDate dateOfFlight = getValidDate(scanner, "Invalid Date. Please enter valid Date.");
+        passenger.setDateOfFlight(dateOfFlight);
+    
+        System.out.println("\nPassenger details are as follows: ");
+        passenger.displayPassengerDetails();
+
+        boolean validInput = false;
+            while (!validInput) {
+                System.out.println("\t\tDo you want your luggage(s) to be handled? (Y/N)");
+                char handleLuggage = scanner.next().charAt(0);
+                switch(Character.toUpperCase(handleLuggage)){
+                    case 'Y': {
+                        LuggageHandler.handleLuggage(scanner); // Call handleLuggage with scanner
+                        validInput = true;
+                        break;
                     }
-                    passenger.setAge(age);
-                    break;
-                } catch (InputMismatchException e) {
-                    System.out.println("Invalid input. Please enter a valid age.");
-                    scanner.nextLine(); // Consume the invalid input
+                    case 'N': {
+                        validInput = true;
+                        break;
+                    }
+                    default: {
+                        System.out.println("Invalid input. Please enter 'Y' or 'N'.");
+                    }
                 }
             }
-    
-            scanner.nextLine(); // Consume the newline character
-    
-            System.out.print("Gender (M/F): ");
-            String genderInput = scanner.nextLine().toUpperCase();
-            while (!genderInput.equals("M") && !genderInput.equals("F")) {
-                System.out.println("Invalid input. Please enter M or F.");
-                System.out.print("Gender of Passenger (M/F): ");
-                genderInput = scanner.nextLine().toUpperCase();
-            }
-            passenger.setGender(genderInput.charAt(0));
-    
-            System.out.print("Passport Number: ");
-            String passportNumber = scanner.next();
-            passenger.setPassportNumber(passportNumber);
-    
-            System.out.print("Date of Flight (dd/mm/yyyy): ");
-            LocalDate dateOfFlight = getValidDate(scanner, "Invalid Date. Please enter valid Date.");
-            passenger.setDateOfFlight(dateOfFlight);
-    
-        passenger.displayPassengerDetails();
-        System.out.println("\t\tDo you want your luggage(s) to be handled? (Y/N)");
-        char handleLuggage = scanner.next().charAt(0);
-        if (Character.toUpperCase(handleLuggage) == 'Y') {
-            LuggageHandler.handleLuggage(scanner); // Call handleLuggage with scanner
-        }
-
         System.out.println("Do you need special needs assistance? (Y/N): ");
         String specialNeeds = scanner.next();
-        if (Character.toUpperCase(specialNeeds.charAt(0)) == 'Y') {
+        while (Character.toUpperCase(specialNeeds.charAt(0)) == 'Y') {
             specialNeedsAssistance();
             scanner.nextLine(); // Consume the newline character
-        } else{
-            return;
         }
-
         art.welcomeScreen(2);
+        System.out.println("Here's your boarding pass: ");
+        passenger.displayPassengerDetails();
+
     }
 
     private static void handleGroupPassenger(Scanner scanner) {
         Artwork art = new Artwork();
+        Passenger passenger = new Passenger();
         // Handle group passenger check-in
         int numberOfPassengers;
         while (true) {
@@ -136,9 +152,8 @@ public class AeroCheck{
         scanner.nextLine(); // Consume the newline character
     
         for (int i = 0; i < numberOfPassengers; i++) {
-            Passenger passenger = new Passenger();
             System.out.print("Enter Full Name of Passenger " + (i + 1) + ": ");
-            passenger.setName(scanner.nextLine());
+            passenger.setName(scanner.next());
     
             while (true) {
                 System.out.print("Age of Passenger " + (i + 1) + ": ");
@@ -171,19 +186,37 @@ public class AeroCheck{
             String passportNumber = scanner.next();
             passenger.setPassportNumber(passportNumber);
     
-            System.out.print("Date of Flight (dd/mm/yyyy) of Passenger " + (i + 1) + ": ");
-            LocalDate dateOfFlight = getValidDate(scanner, "invalid");
+            System.out.print("Date of Flight (dd/mm/yyyy) of Passenger " + (i+1) + ": ");
+            LocalDate dateOfFlight = getValidDate(scanner, "Invalid Date. Please enter valid Date.");
+            passenger.setDateOfFlight(dateOfFlight);
 
             
             passenger.displayPassengerDetails();
     
-            System.out.println("\t\tDo you want your luggage(s) to be handled? (Y/N)");
-            char handleLuggage = scanner.next().charAt(0);
-            if (Character.toUpperCase(handleLuggage) == 'Y') {
-                LuggageHandler.handleLuggage(scanner); // Call handleLuggage with scanner
+            boolean validInput = false;
+            while (!validInput) {
+                System.out.println("\t\tDo you want your luggage(s) to be handled? (Y/N)");
+                char handleLuggage = scanner.next().charAt(0);
+                switch(Character.toUpperCase(handleLuggage)){
+                    case 'Y': {
+                        LuggageHandler.handleLuggage(scanner); // Call handleLuggage with scanner
+                        validInput = true;
+                        break;
+                    }
+                    case 'N': {
+                        validInput = true;
+                        break;
+                    }
+                    default: {
+                        System.out.println("Invalid input. Please enter 'Y' or 'N'.");
+                    }
+                }
             }
 
             specialNeedsAssistance();
+            
+            System.out.println("Here's your boarding pass: ");
+            passenger.displayPassengerDetails();
         }
         art.welcomeScreen(2);
     }
