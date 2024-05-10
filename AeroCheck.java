@@ -94,9 +94,6 @@ public class AeroCheck{
         System.out.print("Date of Flight (dd/mm/yyyy): ");
         LocalDate dateOfFlight = getValidDate(scanner, "Invalid Date. Please enter valid Date.");
         passenger.setDateOfFlight(dateOfFlight);
-    
-        System.out.println("\nPassenger details are as follows: ");
-        passenger.displayPassengerDetails();
 
         boolean validInput = false;
             while (!validInput) {
@@ -117,12 +114,27 @@ public class AeroCheck{
                     }
                 }
             }
-        System.out.println("Do you need special needs assistance? (Y/N): ");
-        String specialNeeds = scanner.next();
-        while (Character.toUpperCase(specialNeeds.charAt(0)) == 'Y') {
-            specialNeedsAssistance();
-            scanner.nextLine(); // Consume the newline character
-        }
+
+            validInput = false;
+            while (!validInput) {
+                System.out.println("Do you need special needs assistance? (Y/N): ");
+                char specialNeeds = scanner.next().charAt(0);
+                switch(Character.toUpperCase(specialNeeds)){
+                    case 'Y': {
+                        specialNeedsAssistance();
+                        validInput = true;
+                        break;
+                    }
+                    case 'N': {
+                        validInput = true;
+                        break;
+                    }
+                    default: {
+                        System.out.println("Invalid input. Please enter 'Y' or 'N'.");
+                    }
+                }
+            }
+
         art.welcomeScreen(2);
         System.out.println("Here's your boarding pass: ");
         passenger.displayPassengerDetails();
@@ -189,9 +201,6 @@ public class AeroCheck{
             System.out.print("Date of Flight (dd/mm/yyyy) of Passenger " + (i+1) + ": ");
             LocalDate dateOfFlight = getValidDate(scanner, "Invalid Date. Please enter valid Date.");
             passenger.setDateOfFlight(dateOfFlight);
-
-            
-            passenger.displayPassengerDetails();
     
             boolean validInput = false;
             while (!validInput) {
