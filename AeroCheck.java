@@ -214,7 +214,7 @@ public class AeroCheck{
                 char handleLuggage = scanner.next().charAt(0);
                 switch(Character.toUpperCase(handleLuggage)){
                     case 'Y': {
-                        LuggageHandler.handleLuggage(scanner); // Call handleLuggage with scanner
+                        LuggageHandler.handleLuggage(scanner, passenger); // Call handleLuggage with scanner
                         validInput = true;
                         break;
                     }
