@@ -58,10 +58,10 @@ public class AeroCheck{
         // Handle single passenger check-in
         Passenger passenger = new Passenger();
         System.out.print("Enter First Name: ");
-        passenger.setfirstName(scanner.next());
+        passenger.setFirstName(scanner.next());
         
         System.out.print("Enter Last Name: ");
-        passenger.setlastName(scanner.next());
+        passenger.setFirstName(scanner.next());
 
         while (true) {
         System.out.print("Age: ");
@@ -104,7 +104,7 @@ public class AeroCheck{
                 char handleLuggage = scanner.next().charAt(0);
                 switch(Character.toUpperCase(handleLuggage)){
                     case 'Y': {
-                        LuggageHandler.handleLuggage(scanner); // Call handleLuggage with scanner
+                        LuggageHandler.handleLuggage(scanner, passenger); // Call handleLuggage with scanner
                         validInput = true;
                         break;
                     }
@@ -168,10 +168,10 @@ public class AeroCheck{
     
         for (int i = 0; i < numberOfPassengers; i++) {
             System.out.print("Enter First Name of Passenger " + (i + 1) + ": ");
-            passenger.setfirstName(scanner.next());
+            passenger.setFirstName(scanner.next());
 
             System.out.print("Enter Last Name of Passenger " + (i + 1) + ": ");
-            passenger.setlastName(scanner.next());
+            passenger.setFirstName(scanner.next());
     
             while (true) {
                 System.out.print("Age of Passenger " + (i + 1) + ": ");
