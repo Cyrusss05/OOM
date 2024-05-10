@@ -1,18 +1,23 @@
 import java.time.LocalDate;
 public class Passenger {
-    private String name;
+    private String firstName;
+    private String lastName;
     private int age;
     private char gender;
     private String passportNumber;
     private LocalDate dateOfFlight;
 
     public void displayPassengerDetails() {
-        System.out.println("\n\nName:\t" + name + "\nAge:\t" + age + " years old." + "\nGender:\t" + gender + "\nPassport Number:\t" + passportNumber + "\nDate of Flight (yyyy/mm/dd):\t\n\n" + dateOfFlight);
+        System.out.println("\n\nFull Name:\t" + firstName + " " + lastName + "\nAge:\t" + age + " years old." + "\nGender:\t" + gender + "\nPassport Number:            " + passportNumber + "\nDate of Flight (yyyy/mm/dd):\t" + dateOfFlight);
     }
 
     // Getters and setters
-    public void setName(String name) {
-        this.name = name;
+    public void setfirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setlastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public void setAge(int age) {

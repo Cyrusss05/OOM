@@ -57,8 +57,11 @@ public class AeroCheck{
         Artwork art = new Artwork();
         // Handle single passenger check-in
         Passenger passenger = new Passenger();
-        System.out.print("Enter Full Name: ");
-        passenger.setName(scanner.next());
+        System.out.print("Enter First Name: ");
+        passenger.setfirstName(scanner.next());
+        
+        System.out.print("Enter Last Name: ");
+        passenger.setlastName(scanner.next());
 
         while (true) {
         System.out.print("Age: ");
@@ -164,8 +167,11 @@ public class AeroCheck{
         scanner.nextLine(); // Consume the newline character
     
         for (int i = 0; i < numberOfPassengers; i++) {
-            System.out.print("Enter Full Name of Passenger " + (i + 1) + ": ");
-            passenger.setName(scanner.next());
+            System.out.print("Enter First Name of Passenger " + (i + 1) + ": ");
+            passenger.setfirstName(scanner.next());
+
+            System.out.print("Enter Last Name of Passenger " + (i + 1) + ": ");
+            passenger.setlastName(scanner.next());
     
             while (true) {
                 System.out.print("Age of Passenger " + (i + 1) + ": ");
@@ -222,7 +228,25 @@ public class AeroCheck{
                 }
             }
 
-            specialNeedsAssistance();
+            validInput = false;
+            while (!validInput) {
+                System.out.println("Do you need special needs assistance? (Y/N): ");
+                char specialNeeds = scanner.next().charAt(0);
+                switch(Character.toUpperCase(specialNeeds)){
+                    case 'Y': {
+                        specialNeedsAssistance();
+                        validInput = true;
+                        break;
+                    }
+                    case 'N': {
+                        validInput = true;
+                        break;
+                    }
+                    default: {
+                        System.out.println("Invalid input. Please enter 'Y' or 'N'.");
+                    }
+                }
+            }
             
             System.out.println("Here's your boarding pass: ");
             passenger.displayPassengerDetails();
@@ -275,6 +299,8 @@ public class AeroCheck{
                 return LocalDate.parse(dateOfFlight, formatter);
             } catch (DateTimeParseException e) {
                 System.out.println(errorMessage);
+                System.out.print("Enter a valid date format (dd/mm/yyyy): ");
+
             }
         }
     }
