@@ -2,13 +2,33 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class LuggageHandler {
+    public static void handleLuggagePrompt(Scanner scanner, Passenger passenger) {
+        // Prompt for luggage handling moved from SinglePassengerHandler
+        System.out.println("\t\tDo you want your luggage(s) to be handled? (Y/N)");
+        char handleLuggage = scanner.next().charAt(0);
+        switch (Character.toUpperCase(handleLuggage)) {
+            case 'Y': {
+                handleLuggage(scanner, passenger); // Call the luggage handling method
+                break;
+            }
+            case 'N': {
+                // No luggage handling required
+                break;
+            }
+            default: {
+                System.out.println("Invalid input. Please enter 'Y' or 'N'.");
+                handleLuggagePrompt(scanner, passenger); // Re-prompt for valid input
+            }
+        }
+    }
+
     public static void handleLuggage(Scanner scanner, Passenger passenger) {
         System.out.println("\t\tPlease place your luggage(s) on the weighing scale");
         System.out.println("\t\tPlease enter luggage weight.");
 
         double luggageWeight;
         boolean isValidWeight = false;
-        
+
         // Loop until a valid luggage weight is entered
         while (!isValidWeight) {
             if (scanner.hasNextDouble()) {

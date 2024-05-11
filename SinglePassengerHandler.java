@@ -46,31 +46,12 @@ public class SinglePassengerHandler {
         System.out.print("Date of Flight (dd/mm/yyyy): ");
         LocalDate dateOfFlight = DateValidator.getValidDate(scanner, "Invalid Date. Please enter valid Date.");
         passenger.setDateOfFlight(dateOfFlight);
-        boolean validInput = false;
-
-        while (!validInput) {
-            System.out.println("\t\tDo you want your luggage(s) to be handled? (Y/N)");
-            char handleLuggage = scanner.next().charAt(0);
-            switch (Character.toUpperCase(handleLuggage)) {
-                case 'Y': {
-                    LuggageHandler.handleLuggage(scanner, passenger);
-                    validInput = true;
-                    break;
-                }
-                case 'N': {
-                    validInput = true;
-                    break;
-                }
-                default: {
-                    System.out.println("Invalid input. Please enter 'Y' or 'N'.");
-                }
-            }
-        }
+        
+        LuggageHandler.handleLuggagePrompt(scanner, passenger); // New: Prompt for luggage handling
 
         SpecialNeedsAssistant assistant = new SpecialNeedsAssistant();
         assistant.specialNeedsAssistance(passenger);
-        validInput = true;
-
+        
         art.welcomeScreen(2);
         System.out.println("Here's your boarding pass: ");
         passenger.displayPassengerDetails();
