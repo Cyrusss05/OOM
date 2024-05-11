@@ -22,13 +22,13 @@ public class Passenger {
 
         System.out.println("___________________________________________________________________________________________________________________________________________________");
         System.out.println("| Passenger Details");
-        System.out.println("| Full Name: " + firstName + " " + lastName);
-        System.out.println("| Age: " + age + " years old.");
-        System.out.println("| Gender: " + gender);
-        System.out.println("| Passport Number: " + passportNumber);
-        System.out.println("| Date of Flight (yyyy/mm/dd): " + dateOfFlight);
-        System.out.println("| Luggage Weight: " + luggageWeight + " Kg");
-        System.out.println("| Special Needs Assistance: " + assist);
+        System.out.println(  "| Full Name                  : " + firstName + " " + lastName);
+        System.out.println(  "| Age                        : " + age + " years old.");
+        System.out.println(  "| Gender                     : " + gender);
+        System.out.println(  "| Passport Number            : " + passportNumber);
+        System.out.println(  "| Date of Flight (yyyy/mm/dd): " + dateOfFlight);
+        System.out.println(  "| Luggage Weight             : " + luggageWeight + " Kg");
+        System.out.println(  "| Special Needs Assistance   : " + assist);
         System.out.println("|__________________________________________________________________________________________________________________________________________________");
     }
 
