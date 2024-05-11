@@ -9,19 +9,18 @@ public class Passenger {
     private double LuggageWeight;
 
     public void displayPassengerDetails() {
-        System.out.println("\n\nFull Name:\t" + firstName + " " + lastName + "\nAge:\t" + age + " years old." + "\nGender:\t" + gender + "\nPassport Number:            " + passportNumber + "\nDate of Flight (yyyy/mm/dd):\t" + dateOfFlight);
         System.out.println(
 
 
         "\n"+
         "_____________________________________________________________________________________________________________________________________________________\n"+
-        "passanger details"+  
+        "| passanger details"+"\n"+
         "|"+"\n"+
-        "|"+"Full Name                  :" + firstName + " " + lastName + "\t"+"|"+"\n"+
-        "|"+"Age                        :" + age + " years old." + "\t"+"|"+"\n"+
-        "|"+"Gender                     :" + gender + "\t"+"|"+"\n"+
-        "|"+"Passport Number            :" + passportNumber + "\t"+"|"+"\n"+
-        "|"+"Date of Flight (yyyy/mm/dd):" + dateOfFlight +"\t"+"|"+"\n"+
+        "|"+"Full Name                  :" + firstName + " " + lastName + "\n"+
+        "|"+"Age                        :" + age + " years old." + "\n"+
+        "|"+"Gender                     :" + gender + "\n"+
+        "|"+"Passport Number            :" + passportNumber + "\n"+
+        "|"+"Date of Flight (yyyy/mm/dd):" + dateOfFlight + "\n"+
         "|" + "Luggage Weight             :" + LuggageWeight + "\n" +
         "_____________________________________________________________________________________________________________________________________________________"
         
