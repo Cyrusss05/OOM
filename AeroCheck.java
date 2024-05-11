@@ -130,7 +130,6 @@ public class AeroCheck{
                     }
                 }
             }
-
             
         art.welcomeScreen(2);
         System.out.println("Here's your boarding pass: ");
