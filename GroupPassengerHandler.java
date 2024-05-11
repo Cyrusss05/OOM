@@ -17,22 +17,21 @@ public class GroupPassengerHandler {
                     continue;
                 }
                 break;
-            } catch (NumberFormatException e) {
+            } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a valid number.");
+                scanner.nextLine(); // Clear the scanner buffer
             }
         }
 
         // Iterate through each passenger
         for (int i = 0; i < numberOfPassengers; i++) {
             Passenger passenger = new Passenger(); // Create a new passenger for each iteration
-
+            System.out.println("\n");
             System.out.print("Enter First Name of Passenger " + (i + 1) + ": ");
-            String firstName = scanner.nextLine().trim(); // Read the entire line and trim whitespaces
-            passenger.setFirstName(firstName);
+            passenger.setFirstName(scanner.next());
 
             System.out.print("Enter Last Name of Passenger " + (i + 1) + ": ");
-            String lastName = scanner.nextLine().trim(); // Read the entire line and trim whitespaces
-            passenger.setLastName(lastName);
+            passenger.setLastName(scanner.next());
 
             while (true) {
                 System.out.print("Age of Passenger " + (i + 1) + ": ");

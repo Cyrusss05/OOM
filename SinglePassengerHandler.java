@@ -7,6 +7,7 @@ public class SinglePassengerHandler {
         Artwork art = new Artwork();
         Passenger passenger = new Passenger();
         // Handle single passenger check-in
+        System.out.println("\n");
         System.out.print("Enter First Name: ");
         passenger.setFirstName(scanner.next());
 
