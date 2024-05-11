@@ -9,10 +9,16 @@ public class Passenger {
     private LocalDate dateOfFlight;
     private double luggageWeight;
     private boolean specialNeedsAssistance;
+    private String baggageTag;
 
     // Getter and setter for assist
     public String getAssist() {
         return specialNeedsAssistance ? "Required" : "Not Required";
+    }
+
+    // get tac number 
+    public String getBaggageTag() {
+        return baggageTag;
     }
 
 
@@ -29,6 +35,7 @@ public class Passenger {
         System.out.println(  "| Date of Flight (yyyy/mm/dd): " + dateOfFlight);
         System.out.println(  "| Luggage Weight             : " + luggageWeight + " Kg");
         System.out.println(  "| Special Needs Assistance   : " + assist);
+        System.out.println(  "| Bag Tac number             : " + baggageTag);
         System.out.println("|__________________________________________________________________________________________________________________________________________________");
     }
 
@@ -95,5 +102,11 @@ public class Passenger {
 
     public void setSpecialNeedsAssistance(boolean specialNeedsAssistance) {
         this.specialNeedsAssistance = specialNeedsAssistance;
+    }
+
+    
+
+    public void setBaggageTag(String baggageTag) {
+        this.baggageTag = baggageTag;
     }
 }
