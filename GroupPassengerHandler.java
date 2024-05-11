@@ -11,8 +11,7 @@ public class GroupPassengerHandler {
         while (true) {
             System.out.print("Number of Passengers: ");
             try {
-                String input = scanner.nextLine(); // Read the entire line
-                numberOfPassengers = Integer.parseInt(input); // Parse the input into an integer
+                numberOfPassengers= scanner.nextInt(); // Read the entire line
                 if (numberOfPassengers <= 0) {
                     System.out.println("Number of passengers must be a positive integer.");
                     continue;
