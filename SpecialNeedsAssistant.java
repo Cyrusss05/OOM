@@ -4,6 +4,7 @@ public class SpecialNeedsAssistant {
 
     public void specialNeedsAssistance(Passenger passenger) {
         Artwork art = new Artwork();
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
 
         // Prompt user for special needs assistance
