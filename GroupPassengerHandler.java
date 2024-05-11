@@ -5,33 +5,34 @@ import java.time.LocalDate;
 public class GroupPassengerHandler {
     public static void handleGroupPassenger(Scanner scanner) {
         Artwork art = new Artwork();
-        Passenger passenger = new Passenger();
+
         // Handle group passenger check-in
         int numberOfPassengers;
         while (true) {
             System.out.print("Number of Passengers: ");
             try {
-                numberOfPassengers = scanner.nextInt();
+                String input = scanner.nextLine(); // Read the entire line
+                numberOfPassengers = Integer.parseInt(input); // Parse the input into an integer
                 if (numberOfPassengers <= 0) {
                     System.out.println("Number of passengers must be a positive integer.");
                     continue;
                 }
                 break;
-            } catch (InputMismatchException e) {
+            } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please enter a valid number.");
-                scanner.nextLine(); // Consume the invalid input
             }
         }
 
-        scanner.nextLine(); // Consume the newline character
-
         for (int i = 0; i < numberOfPassengers; i++) {
+            Passenger passenger = new Passenger(); // Create a new passenger for each iteration
+
             System.out.print("Enter First Name of Passenger " + (i + 1) + ": ");
-            String firstName = scanner.nextLine(); // Read the entire line
-            passenger.setFirstName(firstName.trim()); // Trim any leading/trailing whitespaces
+            String firstName = scanner.nextLine().trim(); // Read the entire line and trim whitespaces
+            passenger.setFirstName(firstName);
 
             System.out.print("Enter Last Name of Passenger " + (i + 1) + ": ");
-            passenger.setLastName(scanner.next());
+            String lastName = scanner.nextLine().trim(); // Read the entire line and trim whitespaces
+            passenger.setLastName(lastName);
 
             while (true) {
                 System.out.print("Age of Passenger " + (i + 1) + ": ");
@@ -94,7 +95,7 @@ public class GroupPassengerHandler {
             validInput = true;
 
             art.welcomeScreen(2);
-            System.out.println("Here's your boarding pass: ");
+            System.out.println("Here's your boarding pass for Passenger " + (i + 1) + ":");
             passenger.displayPassengerDetails();
         }
     }
