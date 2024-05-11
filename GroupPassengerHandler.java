@@ -67,7 +67,7 @@ public class GroupPassengerHandler {
             passenger.setPassportNumber(passportNumber);
 
             System.out.print("Date of Flight (dd/mm/yyyy) of Passenger " + (i + 1) + ": ");
-            LocalDate dateOfFlight = AeroCheck.getValidDate(scanner, "Invalid Date. Please enter valid Date.");
+            LocalDate dateOfFlight = DateValidator.getValidDate(scanner, "Invalid Date. Please enter valid Date.");
             passenger.setDateOfFlight(dateOfFlight);
 
             boolean validInput = false;

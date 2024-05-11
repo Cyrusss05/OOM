@@ -44,7 +44,7 @@ public class SinglePassengerHandler {
         String passportNumber = scanner.next();
         passenger.setPassportNumber(passportNumber);
         System.out.print("Date of Flight (dd/mm/yyyy): ");
-        LocalDate dateOfFlight = AeroCheck.getValidDate(scanner, "Invalid Date. Please enter valid Date.");
+        LocalDate dateOfFlight = DateValidator.getValidDate(scanner, "Invalid Date. Please enter valid Date.");
         passenger.setDateOfFlight(dateOfFlight);
         boolean validInput = false;
 

@@ -1,6 +1,3 @@
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class AeroCheck {
@@ -28,18 +25,5 @@ public class AeroCheck {
                 break;
         }
         scanner.close();
-    }
-
-    public static LocalDate getValidDate(Scanner read, String errorMessage) {
-        while (true) {
-            String dateOfFlight = read.next();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            try {
-                return LocalDate.parse(dateOfFlight, formatter);
-            } catch (DateTimeParseException e) {
-                System.out.println(errorMessage);
-                System.out.print("Enter a valid date format (dd/mm/yyyy): ");
-            }
-        }
     }
 }
