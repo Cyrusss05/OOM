@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class AeroCheck {
+public class AeroCheckMain {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Artwork art = new Artwork();
