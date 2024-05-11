@@ -112,7 +112,6 @@ public class AeroCheck{
             }
             validInput = false;
             while (!validInput) {
-                System.out.println("Do you need special needs assistance? (Y/N): ");
                 char specialNeeds = scanner.next().charAt(0);
                 switch(Character.toUpperCase(specialNeeds)){
                     case 'Y': {

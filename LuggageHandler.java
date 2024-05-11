@@ -4,7 +4,7 @@ import java.util.Random;
 public class LuggageHandler {
     public static void handleLuggage(Scanner scanner, Passenger passenger) {
         System.out.println("\t\tPlease place your luggage(s) on the weighing scale");
-        System.out.println("\t\tPress any key to Continue.");
+        System.out.println("\t\tPlease enter luggage weight.");
 
         double luggageWeight;
         boolean isValidWeight = false;
