@@ -10,20 +10,61 @@ public class Passenger {
     private double luggageWeight;
     private boolean specialNeedsAssistance;
 
+    // Getter and setter for assist
+    public String getAssist() {
+        return specialNeedsAssistance ? "Required" : "Not Required";
+    }
+
+
     public void displayPassengerDetails() {
-        System.out.println( "___________________________________________________________________________________________________________________________________________________");
-        System.out.println(" | Passenger Details");
-        System.out.println(   "| Full Name: " + firstName + " " + lastName);
-        System.out.println(   "| Age: " + age + " years old.");
-        System.out.println(   "| Gender: " + gender);
-        System.out.println(   "| Passport Number: " + passportNumber);
-        System.out.println(   "| Date of Flight (yyyy/mm/dd): " + dateOfFlight);
-        System.out.println(   "| Luggage Weight: " + luggageWeight);
-        System.out.println(   "| Special Needs Assistance: " + specialNeedsAssistance);
-        System.out.println( "|__________________________________________________________________________________________________________________________________________________");
+        // Check if specialNeedsAssistance is true or false and set assist accordingly
+        String assist = specialNeedsAssistance ? "Required" : "Not Required";
+
+        System.out.println("___________________________________________________________________________________________________________________________________________________");
+        System.out.println("| Passenger Details");
+        System.out.println("| Full Name: " + firstName + " " + lastName);
+        System.out.println("| Age: " + age + " years old.");
+        System.out.println("| Gender: " + gender);
+        System.out.println("| Passport Number: " + passportNumber);
+        System.out.println("| Date of Flight (yyyy/mm/dd): " + dateOfFlight);
+        System.out.println("| Luggage Weight: " + luggageWeight + " Kg");
+        System.out.println("| Special Needs Assistance: " + assist);
+        System.out.println("|__________________________________________________________________________________________________________________________________________________");
     }
 
     // Getters and setters
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public char getGender() {
+        return gender;
+    }
+
+    public String getPassportNumber() {
+        return passportNumber;
+    }
+
+    public LocalDate getDateOfFlight() {
+        return dateOfFlight;
+    }
+
+    public double getLuggageWeight() {
+        return luggageWeight;
+    }
+
+    public boolean isSpecialNeedsAssistance() {
+        return specialNeedsAssistance;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
