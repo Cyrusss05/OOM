@@ -18,7 +18,7 @@ public class Passenger {
 
     // get tac number 
     public String getBaggageTag() {
-        return baggageTag;
+        return baggageTag ;
     }
 
 
