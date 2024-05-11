@@ -23,22 +23,9 @@ public class Passenger {
 
 
     public void displayPassengerDetails() {
-        //Check if specialNeedsAssistance is true or false and set assist accordingly
-        String assist = specialNeedsAssistance ? "Required" : "Not Required";
-        //check when luggage is applicable or not 
-        String luggageInfo = luggageWeight == 0.0 ? "Not Applicable" : luggageWeight + " Kg";
-
-        System.out.println("___________________________________________________________________________________________________________________________________________________");
-        System.out.println("| Passenger Details");
-        System.out.println(  "| Full Name                  : " + firstName + " " + lastName);
-        System.out.println(  "| Age                        : " + age + " years old.");
-        System.out.println(  "| Gender                     : " + gender);
-        System.out.println(  "| Passport Number            : " + passportNumber);
-        System.out.println(  "| Date of Flight (yyyy/mm/dd): " + dateOfFlight);
-        System.out.println(  "| Luggage Weight             : " + luggageInfo);
-        System.out.println(  "| Special Needs Assistance   : " + assist);
-        System.out.println(  "| Bag Tac number             : " + baggageTag);
-        System.out.println("|__________________________________________________________________________________________________________________________________________________");
+        
+        PassengerDetailsFrame frame = new PassengerDetailsFrame(this);
+        frame.setVisible(true);
     }
 
     // Getters and setters
