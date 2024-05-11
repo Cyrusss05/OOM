@@ -23,6 +23,7 @@ public class GroupPassengerHandler {
             }
         }
 
+        // Iterate through each passenger
         for (int i = 0; i < numberOfPassengers; i++) {
             Passenger passenger = new Passenger(); // Create a new passenger for each iteration
 
