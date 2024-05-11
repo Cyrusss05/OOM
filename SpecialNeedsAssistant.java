@@ -22,6 +22,5 @@ public class SpecialNeedsAssistant {
                 System.out.println("\nInvalid option. Please enter a valid option.\n");
                 break;
         }
-        scanner.close();
     }
 }
