@@ -29,7 +29,7 @@ public class PassengerDetailsFrame extends JFrame {
         addComponent(panel, new JLabel("Gender: " + passenger.getGender()), constraints, 0, 2);
         addComponent(panel, new JLabel("Passport Number: " + passenger.getPassportNumber()), constraints, 0, 3);
         addComponent(panel, new JLabel("Date of Flight: " + passenger.getDateOfFlight().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"))), constraints, 0, 4);
-        addComponent(panel, new JLabel("Luggage Weight: " + (passenger.getLuggageWeight() == 0.0 ? "Not Applicable" : passenger.getLuggageWeight() + " Kg")), constraints, 0, 5);
+        addComponent(panel, new JLabel("Total Luggage Weight: " + (passenger.getLuggageWeight() == 0.0 ? "Not Applicable" : passenger.getLuggageWeight() + " Kg")), constraints, 0, 5);
         addComponent(panel, new JLabel("Special Needs Assistance: " + (passenger.isSpecialNeedsAssistance() ? "Required" : "Not Required")), constraints, 0, 6);
         addComponent(panel, new JLabel("Baggage Tag: " + passenger.getBaggageTag()), constraints, 0, 7);
 

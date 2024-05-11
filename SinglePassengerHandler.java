@@ -8,7 +8,8 @@ public class SinglePassengerHandler {
         Passenger passenger = new Passenger();
         // Handle single passenger check-in
         System.out.println("\n");
-        System.out.print("Enter First Name: ");
+        System.out.println("\n+++++++++++++ Single Passenger Check-in +++++++++++++");
+        System.out.print("\nEnter First Name: ");
         passenger.setFirstName(scanner.next());
 
         System.out.print("Enter Last Name: ");
