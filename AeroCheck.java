@@ -275,6 +275,7 @@ public class AeroCheck{
                 System.out.println("\nInvalid option. Please enter a valid option.\n");
                 break;
         }
+        scanner.close();
     }
     private static LocalDate getValidDate(Scanner read, String errorMessage) {
         while (true) {
