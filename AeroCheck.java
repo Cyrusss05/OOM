@@ -53,10 +53,10 @@ public class AeroCheck{
         // Handle single passenger check-in
         Passenger passenger = new Passenger();
         System.out.print("Enter First Name: ");
-        passenger.setfirstName(scanner.next());
+        passenger.setFirstName(scanner.next());
 
         System.out.print("Enter Last Name: ");
-        passenger.setlastName(scanner.next());
+        passenger.setLastName(scanner.next());
 
         while (true) {
         System.out.print("Age: ");
@@ -117,7 +117,7 @@ public class AeroCheck{
                 switch(Character.toUpperCase(specialNeeds)){
                     case 'Y': {
                         SpecialNeedsAssistant assistant = new SpecialNeedsAssistant();
-                        assistant.specialNeedsAssistance();
+                        assistant.specialNeedsAssistance(passenger);
                         validInput = true;
                         break;
                     }
@@ -158,10 +158,10 @@ public class AeroCheck{
 
         for (int i = 0; i < numberOfPassengers; i++) {
             System.out.print("Enter First Name of Passenger " + (i + 1) + ": ");
-            passenger.setfirstName(scanner.next());
+            passenger.setFirstName(scanner.next());
 
             System.out.print("Enter Last Name of Passenger " + (i + 1) + ": ");
-            passenger.setlastName(scanner.next());
+            passenger.setLastName(scanner.next());
 
             while (true) {
                 System.out.print("Age of Passenger " + (i + 1) + ": ");
@@ -225,7 +225,7 @@ public class AeroCheck{
                 switch(Character.toUpperCase(specialNeeds)){
                     case 'Y': {
                         SpecialNeedsAssistant assistant = new SpecialNeedsAssistant();
-                        assistant.specialNeedsAssistance();
+                        assistant.specialNeedsAssistance(passenger);
                         validInput = true;
                         break;
                     }
