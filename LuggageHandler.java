@@ -12,7 +12,7 @@ public class LuggageHandler {
                 break;
             }
             case 'N': {
-                // No luggage handling required
+                passenger.setBaggageTag("not applicable"); // Set baggage tag to "not applicable"
                 break;
             }
             default: {
