@@ -7,7 +7,7 @@ public class SpecialNeedsAssistant {
         Scanner scanner = new Scanner(System.in);
 
         // Prompt user for special needs assistance
-        System.out.println("Do you require special needs assistance? (Y/N)");
+        System.out.println("Do you require special need wheel chair assistance? (Y/N)");
         String snOption = scanner.nextLine();
 
         switch (snOption.toUpperCase()) {

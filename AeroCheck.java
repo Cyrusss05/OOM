@@ -92,6 +92,7 @@ public class AeroCheck{
         LocalDate dateOfFlight = getValidDate(scanner, "Invalid Date. Please enter valid Date.");
         passenger.setDateOfFlight(dateOfFlight);
         boolean validInput = false;
+
             while (!validInput) {
                 System.out.println("\t\tDo you want your luggage(s) to be handled? (Y/N)");
                 char handleLuggage = scanner.next().charAt(0);
@@ -110,25 +111,13 @@ public class AeroCheck{
                     }
                 }
             }
-            validInput = false;
-            while (!validInput) {
-                char specialNeeds = scanner.next().charAt(0);
-                switch(Character.toUpperCase(specialNeeds)){
-                    case 'Y': {
-                        SpecialNeedsAssistant assistant = new SpecialNeedsAssistant();
-                        assistant.specialNeedsAssistance(passenger);
-                        validInput = true;
-                        break;
-                    }
-                    case 'N': {
-                        validInput = true;
-                        break;
-                    }
-                    default: {
-                        System.out.println("Invalid input. Please enter 'Y' or 'N'.");
-                    }
-                }
-            }
+
+            
+           
+        SpecialNeedsAssistant assistant = new SpecialNeedsAssistant();
+        assistant.specialNeedsAssistance(passenger);
+        validInput = true;
+                                 
         art.welcomeScreen(2);
         System.out.println("Here's your boarding pass: ");
         passenger.displayPassengerDetails();
