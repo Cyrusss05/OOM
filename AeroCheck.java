@@ -3,13 +3,11 @@ import java.util.Scanner;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-
 public class AeroCheck{
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Artwork art = new Artwork();
         int desiredOption;
-
         art.welcomeScreen(1);
         System.out.println("\n\t\t\t\t\t+++++++++++++ Welcome to AeroCheck AirLines +++++++++++++\n\nTo Further Proceed, Please enter a value.");
         desiredOption = displayMenuAndGetOption(scanner);
@@ -27,10 +25,8 @@ public class AeroCheck{
                 System.out.println("\nInvalid option. Please enter a valid option.\n");
                 break;
         }
-
         scanner.close();
     }
-
     private static int displayMenuAndGetOption(Scanner scanner) {
         int desiredOption;
         while (true) {
@@ -52,16 +48,15 @@ public class AeroCheck{
         }
         return desiredOption;
     }
-
     private static void handleSinglePassenger(Scanner scanner) {
         Artwork art = new Artwork();
         // Handle single passenger check-in
         Passenger passenger = new Passenger();
         System.out.print("Enter First Name: ");
-        passenger.setFirstName(scanner.next());
-        
+        passenger.setfirstName(scanner.next());
+
         System.out.print("Enter Last Name: ");
-        passenger.setFirstName(scanner.next());
+        passenger.setlastName(scanner.next());
 
         while (true) {
         System.out.print("Age: ");
@@ -93,11 +88,9 @@ public class AeroCheck{
         System.out.print("Passport Number: ");
         String passportNumber = scanner.next();
         passenger.setPassportNumber(passportNumber);
-
         System.out.print("Date of Flight (dd/mm/yyyy): ");
         LocalDate dateOfFlight = getValidDate(scanner, "Invalid Date. Please enter valid Date.");
         passenger.setDateOfFlight(dateOfFlight);
-
         boolean validInput = false;
             while (!validInput) {
                 System.out.println("\t\tDo you want your luggage(s) to be handled? (Y/N)");
@@ -117,7 +110,6 @@ public class AeroCheck{
                     }
                 }
             }
-
             validInput = false;
             while (!validInput) {
                 System.out.println("Do you need special needs assistance? (Y/N): ");
@@ -137,13 +129,10 @@ public class AeroCheck{
                     }
                 }
             }
-
         art.welcomeScreen(2);
         System.out.println("Here's your boarding pass: ");
         passenger.displayPassengerDetails();
-
     }
-
     private static void handleGroupPassenger(Scanner scanner) {
         Artwork art = new Artwork();
         Passenger passenger = new Passenger();
@@ -165,14 +154,14 @@ public class AeroCheck{
         }
     
         scanner.nextLine(); // Consume the newline character
-    
+
         for (int i = 0; i < numberOfPassengers; i++) {
             System.out.print("Enter First Name of Passenger " + (i + 1) + ": ");
-            passenger.setFirstName(scanner.next());
+            passenger.setfirstName(scanner.next());
 
             System.out.print("Enter Last Name of Passenger " + (i + 1) + ": ");
-            passenger.setFirstName(scanner.next());
-    
+            passenger.setlastName(scanner.next());
+
             while (true) {
                 System.out.print("Age of Passenger " + (i + 1) + ": ");
                 try {
@@ -247,13 +236,12 @@ public class AeroCheck{
                     }
                 }
             }
-            
+
             System.out.println("Here's your boarding pass: ");
             passenger.displayPassengerDetails();
         }
         art.welcomeScreen(2);
     }
-
     private static void specialNeedsAssistance()
     {
         Artwork art = new Artwork();
@@ -277,7 +265,6 @@ public class AeroCheck{
             }
         }
         switch (snOptions) {
-
             case 1:
                 art.welcomeScreen(3);
                 System.out.println("Please wait patiently for our staff to locate to you.");
@@ -289,11 +276,9 @@ public class AeroCheck{
                 break;
         }
     }
-
     private static LocalDate getValidDate(Scanner read, String errorMessage) {
         while (true) {
             String dateOfFlight = read.next();
-
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             try {
                 return LocalDate.parse(dateOfFlight, formatter);

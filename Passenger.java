@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-
 public class Passenger {
     private String firstName;
     private String lastName;
@@ -7,42 +6,34 @@ public class Passenger {
     private char gender;
     private String passportNumber;
     private LocalDate dateOfFlight;
-    private double luggageWeight;
+    private double LuggageWeight;
 
-    // Constructor
-    public Passenger(String firstName, String lastName, int age, char gender, String passportNumber, LocalDate dateOfFlight, double luggageWeight) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.gender = gender;
-        this.passportNumber = passportNumber;
-        this.dateOfFlight = dateOfFlight;
-        this.luggageWeight = luggageWeight;
-    }
-
-    // Display passenger details method
     public void displayPassengerDetails() {
+        System.out.println("\n\nFull Name:\t" + firstName + " " + lastName + "\nAge:\t" + age + " years old." + "\nGender:\t" + gender + "\nPassport Number:            " + passportNumber + "\nDate of Flight (yyyy/mm/dd):\t" + dateOfFlight);
         System.out.println(
-            "\n" +
-            "_____________________________________________________________________________________________________________________________________________________\n" +
-            "|" + "passenger details\n" +
-            "|\n" +
-            "|" + "Full Name                  :" + firstName + " " + lastName + "\n" +
-            "|" + "Age                        :" + age + " years old." + "\n" +
-            "|" + "Gender                     :" + gender + "\n" +
-            "|" + "Passport Number            :" + passportNumber + "\n" +
-            "|" + "Date of Flight (yyyy/mm/dd):" + dateOfFlight + "\n" +
-            "|" + "Luggage Weight             :" + luggageWeight + "\n" +
-            "_____________________________________________________________________________________________________________________________________________________"
+
+
+        "\n"+
+        "_____________________________________________________________________________________________________________________________________________________\n"+
+        "passanger details"+  
+        "|"+"\n"+
+        "|"+"Full Name                  :" + firstName + " " + lastName + "\t"+"|"+"\n"+
+        "|"+"Age                        :" + age + " years old." + "\t"+"|"+"\n"+
+        "|"+"Gender                     :" + gender + "\t"+"|"+"\n"+
+        "|"+"Passport Number            :" + passportNumber + "\t"+"|"+"\n"+
+        "|"+"Date of Flight (yyyy/mm/dd):" + dateOfFlight +"\t"+"|"+"\n"+
+        "|" + "Luggage Weight             :" + LuggageWeight + "\n" +
+        "_____________________________________________________________________________________________________________________________________________________"
+        
         );
     }
 
     // Getters and setters
-    public void setFirstName(String firstName) {
+    public void setfirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public void setLastName(String lastName) {
+    public void setlastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -62,11 +53,8 @@ public class Passenger {
         this.dateOfFlight = dateOfFlight;
     }
 
-    public void setLuggageWeight(double luggageWeight) {
-        this.luggageWeight = luggageWeight;
-    }
 
-    public double getLuggageWeight() {
-        return luggageWeight;
+    public void setLuggageWeight(double nextDouble) {
+        this.LuggageWeight = nextDouble;
     }
 }
