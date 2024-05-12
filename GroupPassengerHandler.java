@@ -38,8 +38,8 @@ public class GroupPassengerHandler {
                 System.out.print("Age of Passenger " + (i + 1) + ": ");
                 try {
                     int age = scanner.nextInt();
-                    if (age <= 0) {
-                        System.out.println("Age must be a positive integer.");
+                    if (age <= 0 || age >= 150) {
+                        System.out.println("Age is invalid. please try again");
                         continue;
                     }
                     if (age <= 18) {
@@ -61,7 +61,7 @@ public class GroupPassengerHandler {
                     }
                     passenger.setAge(age);
                     break;
-                } catch (InputMismatchException e) {
+                } catch (InputMismatchException e ) {
                     System.out.println("Invalid input. Please enter a valid age.");
                     scanner.nextLine(); // Consume the invalid input
                 }

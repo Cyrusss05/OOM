@@ -18,8 +18,8 @@ public class SinglePassengerHandler {
             System.out.print("Age: ");
             try {
                 int age = scanner.nextInt();
-                if (age <= 0) {
-                    System.out.println("Age must be a positive integer.");
+                if (age <= 0 || age >= 150) {
+                    System.out.println("Age is invalid. please try again");
                     continue;
                 }
                 if (age <= 18) {
