@@ -38,21 +38,40 @@ public class GroupPassengerHandler {
                 System.out.print("Age of Passenger " + (i + 1) + ": ");
                 try {
                     int age = scanner.nextInt();
-                    if (age <= 0 || age >= 150) {
-                        System.out.println("Age is invalid. please try again");
+                    if (age <= 0 ) {
+                        System.out.println("Age must be a positive integer");
                         continue;
                     }
-                    if (age <= 18) {
-                        char restart;
+                    if (age >= 150){
+                        System.out.println("Your age is above 150 and irrational");
+                        char restart0;
                         do {
-                            System.out.println("You are underage and can't check in our system.");
                             System.out.println("Do you want to restart the check in(Y/N)?");
-                            restart = scanner.next().charAt(0);
-                            switch (Character.toUpperCase(restart)) {
+                            restart0 = scanner.next().charAt(0);
+                            switch (Character.toUpperCase(restart0)) {
                                 case 'Y':
                                     handleGroupPassenger(scanner); // Restart the process
                                     return;
                                 case 'N':
+                                    art.welcomeScreen(7);
+                                    System.exit(0); // Exit the program
+                                default:
+                                    System.out.println("Invalid input. Please enter 'Y' or 'N'.");
+                            }
+                        } while (true);
+                    }
+                    if (age <= 18) {
+                        char restart1;
+                        do {
+                            System.out.println("You are underage and can't check in our system.");
+                            System.out.println("Do you want to restart the check in(Y/N)?");
+                            restart1 = scanner.next().charAt(0);
+                            switch (Character.toUpperCase(restart1)) {
+                                case 'Y':
+                                    handleGroupPassenger(scanner); // Restart the process
+                                    return;
+                                case 'N':
+                                    art.welcomeScreen(7);
                                     System.exit(0); // Exit the program
                                 default:
                                     System.out.println("Invalid input. Please enter 'Y' or 'N'.");
