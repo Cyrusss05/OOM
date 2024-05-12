@@ -62,7 +62,8 @@ Y88b  d88P 888  888 Y8b.     Y88b.    888 "88b       888 888  888      Y88b  d88
         if (option == 5 ) {
             System.out.println("\n+++++++++++++ Single Passenger Check-in +++++++++++++");
         }
-        if(option == 6){
+
+        if (option == 6){
             System.out.println("\n\t\t\t\t\t+++++++++++++ Welcome to AeroCheck AirLines +++++++++++++\n\nTo Further Proceed, Please enter a value.\n");
         }
 
