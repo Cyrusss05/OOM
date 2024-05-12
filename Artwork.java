@@ -14,6 +14,7 @@ public class Artwork {
 888P     Y888  "Y8888  888  "Y8888P "Y88P"  888  888  888  "Y8888       "Y888 "Y88P"      d88P     888  "Y8888  888     "Y88P"   "Y8888P"  888  888  "Y8888   "Y8888P 888  888
                             """;
         System.out.println("\n\n"+artWork);
+        System.out.println("\n\t\t\t\t\t+++++++++++++ Welcome to AeroCheck AirLines +++++++++++++\n\nTo Further Proceed, Please enter a value.\n");
         }
         if (option == 2) {
             artWork ="""
