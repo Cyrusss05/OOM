@@ -42,9 +42,22 @@ public class GroupPassengerHandler {
                         System.out.println("Age must be a positive integer.");
                         continue;
                     }
-                    if(age<= 18){
-                        System.out.println("you are underaged and cant check in our system");
-                        System. exit(0);
+                    if (age <= 18) {
+                        char restart;
+                        do {
+                            System.out.println("You are underage and can't check in our system.");
+                            System.out.println("Do you want to restart the check in(Y/N)?");
+                            restart = scanner.next().charAt(0);
+                            switch (Character.toUpperCase(restart)) {
+                                case 'Y':
+                                    handleGroupPassenger(scanner); // Restart the process
+                                    return;
+                                case 'N':
+                                    System.exit(0); // Exit the program
+                                default:
+                                    System.out.println("Invalid input. Please enter 'Y' or 'N'.");
+                            }
+                        } while (true);
                     }
                     passenger.setAge(age);
                     break;
