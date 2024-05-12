@@ -56,6 +56,11 @@ public class LuggageHandler {
                     i--; // Decrement i to re-prompt for the same luggage
                     continue;
                 }
+                if (luggageWeight > 30){
+                    System.out.println("maximum luggage weight is 30Kg");
+                    i--; // Decrement i to re-prompt for the same luggage
+                    continue;
+                }
                 totalWeight += luggageWeight;
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input! Please enter a valid number.");
