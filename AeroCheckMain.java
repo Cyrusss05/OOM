@@ -6,6 +6,7 @@ public class AeroCheckMain {
         Artwork art = new Artwork();
         int desiredOption;
         art.welcomeScreen(1);
+        art.welcomeScreen(6);
         
         desiredOption = MenuHandler.displayMenuAndGetOption(scanner);
         
