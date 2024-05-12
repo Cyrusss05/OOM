@@ -33,6 +33,11 @@ public class LuggageHandler {
                 handleLuggage(scanner, passenger); // Re-prompt for valid input
                 return;
             }
+            if (numLuggages >= 4){
+                System.out.println("maximum Luggage allowed per passanger is 3");
+                handleLuggage(scanner, passenger); // Re-prompt for valid input
+                return;
+            }
         } catch (InputMismatchException e) {
             System.out.println("Invalid input! Please enter a valid integer.");
             scanner.next(); // Clear the invalid input
