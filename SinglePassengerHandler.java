@@ -58,9 +58,17 @@ public class SinglePassengerHandler {
         }
         passenger.setGender(genderInput.charAt(0));
 
-        System.out.print("Passport Number: ");
-        String passportNumber = scanner.next();
-        passenger.setPassportNumber(passportNumber);
+        System.out.print("Passport Number of Passenger ");
+            String passportNumber;
+            while (true) {
+                passportNumber = scanner.next();
+            if (passportNumber.length() != 9) {
+                System.out.println("Passport number must be exactly 9 characters long. Please try again.");
+                continue;
+            }
+            break;
+            }   
+
         System.out.print("Date of Flight (dd/mm/yyyy): ");
         LocalDate dateOfFlight = DateValidator.getValidDate(scanner, "Invalid Date. Please enter valid Date.");
         passenger.setDateOfFlight(dateOfFlight);
