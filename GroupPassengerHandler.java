@@ -107,7 +107,7 @@ public class GroupPassengerHandler {
             }
             break;
             }       
-passenger.setPassportNumber(passportNumber);
+            passenger.setPassportNumber(passportNumber);
 
 
             System.out.print("Date of Flight (dd/mm/yyyy) of Passenger " + (i + 1) + ": ");
