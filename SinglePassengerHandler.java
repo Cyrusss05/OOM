@@ -86,7 +86,8 @@ public class SinglePassengerHandler {
                 continue;
             }
             break;
-            }   
+            }  
+            passenger.setPassportNumber(passportNumber); 
 
         System.out.print("Date of Flight (dd/mm/yyyy): ");
         LocalDate dateOfFlight = DateValidator.getValidDate(scanner, "Invalid Date. Please enter valid Date.");

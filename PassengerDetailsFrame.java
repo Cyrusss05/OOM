@@ -13,34 +13,96 @@ public class PassengerDetailsFrame extends JFrame {
 
     // Method to initialize the frame components
     private void initialize() {
-        setTitle("Passenger Details");
+        setTitle("Aerocheck Boarding Pass");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null); // Center the frame on the screen
+        // Set custom icon
+        ImageIcon icon = new ImageIcon("airplane.png");
+        setIconImage(icon.getImage());
 
-        JPanel panel = new JPanel(new GridBagLayout());
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.anchor = GridBagConstraints.WEST;
-        constraints.insets = new Insets(10, 10, 10, 10);
+        // Create a panel with a boarding pass layout
+        BoardingPassPanel panel = new BoardingPassPanel();
+        panel.setLayout(new BorderLayout());
+        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         // Add components to the panel
-        addComponent(panel, new JLabel("Full Name: " + passenger.getFirstName() + " " + passenger.getLastName()), constraints, 0, 0);
-        addComponent(panel, new JLabel("Age: " + passenger.getAge() + " years old"), constraints, 0, 1);
-        addComponent(panel, new JLabel("Gender: " + passenger.getGender()), constraints, 0, 2);
-        addComponent(panel, new JLabel("Passport Number: " + passenger.getPassportNumber()), constraints, 0, 3);
-        addComponent(panel, new JLabel("Date of Flight: " + passenger.getDateOfFlight().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"))), constraints, 0, 4);
-        addComponent(panel, new JLabel("Total Luggage Weight: " + (passenger.getLuggageWeight() == 0.0 ? "Not Applicable" : passenger.getLuggageWeight() + " Kg")), constraints, 0, 5);
-        addComponent(panel, new JLabel("Special Needs Assistance: " + (passenger.isSpecialNeedsAssistance() ? "Required" : "Not Required")), constraints, 0, 6);
-        addComponent(panel, new JLabel("Baggage Tag: " + passenger.getBaggageTag()), constraints, 0, 7);
+        panel.add(createHeader(), BorderLayout.NORTH);
+        panel.add(createPassengerInfo(), BorderLayout.CENTER);
+        panel.add(createFooter(), BorderLayout.SOUTH);
 
         getContentPane().add(panel);
         pack();
     }
 
-    // Method to add components to the panel with specified constraints
-    private void addComponent(Container container, Component component, GridBagConstraints constraints, int gridx, int gridy) {
-        constraints.gridx = gridx;
-        constraints.gridy = gridy;
-        container.add(component, constraints);
+    // Method to create the header of the boarding pass
+    private JPanel createHeader() {
+        JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JLabel headerLabel = new JLabel("BOARDING PASS");
+        headerLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        headerPanel.add(headerLabel);
+        return headerPanel;
+    }
+
+    // Method to create the passenger information section
+    private JPanel createPassengerInfo() {
+    
+    JPanel infoPanel = new JPanel(new GridLayout(0, 1, 0, 10));
+    
+    // Style the infoPanel
+    infoPanel.setBackground(new Color(240, 240, 240)); // Set background color
+    infoPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Add padding
+    infoPanel.setLayout(new BoxLayout(infoPanel, BoxLayout.Y_AXIS)); // Use BoxLayout for vertical alignment
+    infoPanel.setPreferredSize(new Dimension(300, 200)); // Set preferred size
+    
+    // Add rounded corners and shadow effect (optional)
+    infoPanel.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(Color.GRAY, 1), // Border color
+            BorderFactory.createEmptyBorder(10, 10, 10, 10) // Inner padding
+    ));
+    infoPanel.setOpaque(false); // Make panel transparent to see background
+    
+    // Add components to the infoPanel
+    infoPanel.add(createInfoLabel("Name: " + passenger.getFirstName() + " " + passenger.getLastName()));
+    infoPanel.add(createInfoLabel("Age: " + passenger.getAge()));
+    infoPanel.add(createInfoLabel("Gender: " + passenger.getGender()));
+    infoPanel.add(createInfoLabel("Passport Number: " + passenger.getPassportNumber()));
+    infoPanel.add(createInfoLabel("Date of Flight: " + passenger.getDateOfFlight().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"))));
+    infoPanel.add(createInfoLabel("Luggage Weight: " + (passenger.getLuggageWeight() == 0.0 ? "N/A" : passenger.getLuggageWeight() + " Kg")));
+    infoPanel.add(createInfoLabel("Special Needs: " + (passenger.isSpecialNeedsAssistance() ? "Required" : "Not Required")));
+    infoPanel.add(createInfoLabel("Baggage Tag: " + passenger.getBaggageTag()));
+
+    return infoPanel;
+}
+
+// Method to create a styled JLabel for passenger information
+private JLabel createInfoLabel(String text) {
+    JLabel label = new JLabel(text);
+    label.setFont(new Font("Arial", Font.PLAIN, 14));
+    label.setForeground(Color.DARK_GRAY);
+    return label;
+}
+    // Method to create the footer of the boarding pass
+    private JPanel createFooter() {
+        JPanel footerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JLabel footerLabel = new JLabel("Have a pleasant journey!");
+        footerPanel.add(footerLabel);
+        return footerPanel;
+    }
+
+    // Custom panel for boarding pass appearance
+    private class BoardingPassPanel extends JPanel {
+        public BoardingPassPanel() {
+            setBackground(Color.WHITE);
+            setLayout(new BorderLayout());
+            setPreferredSize(new Dimension(400, 300));
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            // Draw a boarding pass design (optional)
+            // For example, you can draw lines, shapes, or add images here
+        }
     }
 }
