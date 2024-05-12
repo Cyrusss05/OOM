@@ -18,10 +18,10 @@ public class AeroCheckMain {
                 GroupPassengerHandler.handleGroupPassenger(scanner);
                 break;
             case 0:
-                System.out.println("\nExiting AeroCheck AirLines. Have a great day!\n");
+                art.welcomeScreen(7);
                 break;
             default:
-                System.out.println("\nInvalid option. Please enter a valid option.\n");
+                System.out.println("Invalid option. Please enter a valid option \n");
                 break;
         }
     }

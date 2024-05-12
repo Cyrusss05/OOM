@@ -65,5 +65,9 @@ Y88b  d88P 888  888 Y8b.     Y88b.    888 "88b       888 888  888      Y88b  d88
         if(option == 6){
             System.out.println("\n\t\t\t\t\t+++++++++++++ Welcome to AeroCheck AirLines +++++++++++++\n\nTo Further Proceed, Please enter a value.\n");
         }
+
+        if (option == 7){
+            System.out.println("\n\t\t\t\t+++++++++++++ Exiting AeroCheck AirLines. Have a great day! +++++++++++++\n");
+        }
     }
 }
