@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 import java.util.Random;
 
 public class LuggageHandler {
@@ -24,9 +25,17 @@ public class LuggageHandler {
 
     public static void handleLuggage(Scanner scanner, Passenger passenger) {
         System.out.println("\nHow many luggages do you have?");
-        int numLuggages = scanner.nextInt();
-        if (numLuggages <= 0) {
-            System.out.println("Invalid number of luggages. Please enter a positive value.");
+        int numLuggages;
+        try {
+            numLuggages = scanner.nextInt();
+            if (numLuggages <= 0) {
+                System.out.println("Invalid number of luggages. Please enter a positive value.");
+                handleLuggage(scanner, passenger); // Re-prompt for valid input
+                return;
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input! Please enter a valid integer.");
+            scanner.next(); // Clear the invalid input
             handleLuggage(scanner, passenger); // Re-prompt for valid input
             return;
         }
@@ -35,15 +44,21 @@ public class LuggageHandler {
         double totalWeight = 0.0;
         for (int i = 1; i <= numLuggages; i++) {
             System.out.print("Luggage " + i + ": ");
-            double luggageWeight = scanner.nextDouble();
-            if (luggageWeight < 0) {
-                System.out.println("Invalid luggage weight! Please enter a non-negative value.");
+            try {
+                double luggageWeight = scanner.nextDouble();
+                if (luggageWeight < 0) {
+                    System.out.println("Invalid luggage weight! Please enter a non-negative value.");
+                    i--; // Decrement i to re-prompt for the same luggage
+                    continue;
+                }
+                totalWeight += luggageWeight;
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input! Please enter a valid number.");
+                scanner.next(); // Clear the invalid input
                 i--; // Decrement i to re-prompt for the same luggage
-                continue;
             }
-            totalWeight += luggageWeight;
         }
-
+        
         passenger.setLuggageWeight(totalWeight);
 
         // Generate random baggage tag number
