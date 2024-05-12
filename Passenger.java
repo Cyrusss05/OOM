@@ -93,8 +93,6 @@ public class Passenger {
         this.specialNeedsAssistance = specialNeedsAssistance;
     }
 
-    
-
     public void setBaggageTag(String baggageTag) {
         this.baggageTag = baggageTag;
     }
