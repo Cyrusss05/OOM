@@ -42,6 +42,10 @@ public class GroupPassengerHandler {
                         System.out.println("Age must be a positive integer.");
                         continue;
                     }
+                    if(age<= 18){
+                        System.out.println("you are underaged and cant check in our system");
+                        System. exit(0);
+                    }
                     passenger.setAge(age);
                     break;
                 } catch (InputMismatchException e) {
