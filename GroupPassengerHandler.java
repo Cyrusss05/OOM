@@ -9,7 +9,7 @@ public class GroupPassengerHandler {
         // Handle group passenger check-in
         int numberOfPassengers;
         while (true) {
-            System.out.println("\n+++++++++++++ Group Passenger Check-in +++++++++++++");
+            art.welcomeScreen(4);
             System.out.print("\nNumber of Passengers: ");
             try {
                 numberOfPassengers= scanner.nextInt(); // Read the entire line
