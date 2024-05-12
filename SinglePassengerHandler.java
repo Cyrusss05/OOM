@@ -87,7 +87,14 @@ public class SinglePassengerHandler {
             }
             break;
             }  
-            passenger.setPassportNumber(passportNumber); 
+            passenger.setPassportNumber(passportNumber);
+            
+            
+        System.out.print("Enter Online Booking Number Reference: ");
+        String bookingNumber = scanner.next();
+        passenger.setBookingNumber(bookingNumber);
+        passenger.setJourney(JourneyGenerator.generateJourney());
+            
 
         System.out.print("Date of Flight (dd/mm/yyyy): ");
         LocalDate dateOfFlight = DateValidator.getValidDate(scanner, "Invalid Date. Please enter valid Date.");

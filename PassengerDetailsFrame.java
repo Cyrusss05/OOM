@@ -68,6 +68,7 @@ public class PassengerDetailsFrame extends JFrame {
     infoPanel.add(createInfoLabel("Gender: " + passenger.getGender()));
     infoPanel.add(createInfoLabel("Passport Number: " + passenger.getPassportNumber()));
     infoPanel.add(createInfoLabel("Date of Flight: " + passenger.getDateOfFlight().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"))));
+    infoPanel.add(createInfoLabel("Journey: " + passenger.getJourney()));
     infoPanel.add(createInfoLabel("Luggage Weight: " + (passenger.getLuggageWeight() == 0.0 ? "N/A" : passenger.getLuggageWeight() + " Kg")));
     infoPanel.add(createInfoLabel("Special Needs: " + (passenger.isSpecialNeedsAssistance() ? "Required" : "Not Required")));
     infoPanel.add(createInfoLabel("Baggage Tag: " + passenger.getBaggageTag()));

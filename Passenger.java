@@ -10,6 +10,11 @@ public class Passenger {
     private double luggageWeight;
     private boolean specialNeedsAssistance;
     private String baggageTag;
+    private String journey;
+    private String bookingNumber;
+
+
+
 
     // Getter and setter for assist
     public String getAssist() {
@@ -21,14 +26,24 @@ public class Passenger {
         return baggageTag ;
     }
 
-
     public void displayPassengerDetails() {
         
         PassengerDetailsFrame frame = new PassengerDetailsFrame(this);
         frame.setVisible(true);
     }
 
-    // Getters and setters
+    public String getJourney() {
+        return journey;
+    }
+
+    public String getBookingNumber() {
+        return bookingNumber;
+    }
+
+    public void setBookingNumber(String bookingNumber) {
+        this.bookingNumber = bookingNumber;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -96,4 +111,10 @@ public class Passenger {
     public void setBaggageTag(String baggageTag) {
         this.baggageTag = baggageTag;
     }
+
+    public void setJourney(String journey) {
+        this.journey = journey;
+    }
+
+    
 }
