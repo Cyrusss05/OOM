@@ -9,15 +9,15 @@ public class SpecialNeedsAssistant {
 
         // Prompt user for special needs assistance
         System.out.println("Do you require special need wheel chair assistance? (Y/N)");
-        String snOption = scanner.nextLine();
+        char snOption = scanner.next().charAt(0);
 
-        switch (snOption.toUpperCase()) {
-            case "Y":
+        switch (Character.toUpperCase(snOption)) {
+            case 'Y':
                 art.welcomeScreen(3);
                 System.out.println("Please wait patiently for our staff to locate to you.");
                 passenger.setSpecialNeedsAssistance(true);
                 break;
-            case "N":
+            case 'N':
                 break;
             default:
                 System.out.println("\nInvalid option. Please enter a valid option.\n");

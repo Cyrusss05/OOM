@@ -10,6 +10,7 @@ public class AdminPassengerHandler {
         // Prompt for admin password
         @SuppressWarnings("unused")
         int desiredOption;
+        Artwork art = new Artwork();
         System.out.print("Enter Admin Password: ");
         String password = scanner.next();
 
@@ -19,9 +20,32 @@ public class AdminPassengerHandler {
             handlePassengerInput(scanner);
         } else {
             // Password incorrect, display error message and return to menu
-            System.out.println("Incorrect password. Access denied.");
-            System.out.println("Returning to main menu...");
-            desiredOption = MenuHandler.displayMenuAndGetOption(scanner);
+            System.out.println("Incorrect password. Access denied. Do you want to try again or return to main menu ? (Y/N)");
+            System.out.println("\n\n\t\t(0) Exit.");
+            System.out.println("\t\t(1) Retry");
+            System.out.println("\t\t(2) Back to main menu\n\n");
+            System.out.print("Enter the desired option:    ");
+            int ReTry = scanner.next().charAt(0);
+
+            switch (ReTry) {
+                case 0:
+                art.welcomeScreen(7);
+                System.exit(0); // Exit the program
+                    break;
+                case 1:
+                    System.out.println("Returning to main menu...\n\n\n");
+                    desiredOption = MenuHandler.displayMenuAndGetOption(scanner);
+                    break;
+                case 3:
+                    System.out.println("Retry=\n");
+                    scanner.next(); // Clear the invalid input
+                    break;
+                default:
+                    System.out.println("\nInvalid option. Please enter a valid option.\n");
+                    break;
+            }
+
+           
         }
     }
 
