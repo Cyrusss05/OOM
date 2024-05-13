@@ -43,6 +43,7 @@ public class AdminPassengerHandler {
                     break;
                 default:
                     System.out.println("\nInvalid option. Please enter a valid option.\n");
+                    handleAdminPassenger(scanner); // Restart the process
                     break;
             }
 
