@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class AdminPassengerHandler {
 
     protected static final String ADMIN_PASSWORD = "2379"; // Admin password
+    private static int ageLimit = 150; // Default age limit
 
     public static void handleAdminPassenger(Scanner scanner) {
         // Prompt for admin password
@@ -30,8 +31,8 @@ public class AdminPassengerHandler {
 
             switch (ReTry) {
                 case 0:
-                art.welcomeScreen(7);
-                System.exit(0); // Exit the program
+                    art.welcomeScreen(7);
+                    System.exit(0); // Exit the program
                     break;
                 case 1:
                     System.out.println("Returning to main menu...\n\n\n");
@@ -46,14 +47,10 @@ public class AdminPassengerHandler {
                     handleAdminPassenger(scanner); // Restart the process
                     break;
             }
-
-           
         }
     }
 
     private static void handlePassengerInput(Scanner scanner) {
-        
-
         // Handle admin passenger check-in
         int numberOfPassengers;
         while (true) {
@@ -81,6 +78,9 @@ public class AdminPassengerHandler {
             System.out.print("Enter Last Name of Passenger " + (i + 1) + ": ");
             passenger.setLastName(scanner.next());
 
+            // Prompt for changing age limit only if it's more than 150
+            
+
             while (true) {
                 System.out.print("Age of Passenger " + (i + 1) + ": ");
                 try {
@@ -89,22 +89,34 @@ public class AdminPassengerHandler {
                         System.out.println("Age must be a positive integer");
                         continue;
                     }
-                    if (age >= 150) {
-                        System.out.println("Your age is above 150 and irrational");
-                        char restart0;
-                        do {
-                            System.out.println("Do you want to restart the check in(Y/N)?");
-                            restart0 = scanner.next().charAt(0);
-                            switch (Character.toUpperCase(restart0)) {
-                                case 'Y':
-                                    handleAdminPassenger(scanner); // Restart the process
-                                    return;
-                                case 'N':
-                                    System.exit(0); // Exit the program
-                                default:
-                                    System.out.println("Invalid input. Please enter 'Y' or 'N'.");
-                            }
-                        } while (true);
+
+                    if (age > 150) {
+                        System.out.println("Your age is above " + ageLimit + " and irrational");
+                        System.out.println("Do you want to change the age limit? (Y/N)");
+                        char changeLimitChoice = scanner.next().charAt(0);
+
+                        switch (Character.toUpperCase(changeLimitChoice)){
+                            case 'Y':
+                                System.out.print("Enter the new age limit: ");
+                                age = scanner.nextInt();
+                               break;
+                                
+                            case 'N':
+                                char restart1;
+                                System.out.println("You are underage and can't check in our system.");
+                                System.out.println("Do you want to restart the check in(Y/N)?");
+                                restart1 = scanner.next().charAt(0);
+                                switch (Character.toUpperCase(restart1)) {
+                                    case 'Y':
+                                        handleAdminPassenger(scanner); // Restart the process
+                                        return;
+                                    case 'N':
+                                        System.exit(0); // Exit the program
+                                    default:
+                                        System.out.println("Invalid input. Please enter 'Y' or 'N'.");
+                                    }
+                        }
+                        continue;
                     }
                     if (age <= 18) {
                         char restart1;
@@ -123,9 +135,14 @@ public class AdminPassengerHandler {
                             }
                         } while (true);
                     }
-                    passenger.setAge(age);
-                    break;
-                } catch (InputMismatchException e) {
+                    
+                    else{
+                        passenger.setAge(age);
+                        break;
+                    }
+                } 
+                
+                catch (InputMismatchException e) {
                     System.out.println("Invalid input. Please enter a valid age.");
                     scanner.nextLine(); // Consume the invalid input
                 }
@@ -158,7 +175,7 @@ public class AdminPassengerHandler {
             String bookingNumber = scanner.next();
             passenger.setBookingNumber(bookingNumber);
             passenger.setJourney(JourneyGenerator.generateJourney());
-            System.out.println("you are flying from " + passenger.getJourney() );
+            System.out.println("you are flying from " + passenger.getJourney());
 
             // Generate random seat number using RandomSeatGenerator class
             String seatNumber = RandomSeatGenerator.generateRandomSeatNumber();
