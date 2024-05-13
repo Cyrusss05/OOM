@@ -17,6 +17,9 @@ public class AeroCheckMain {
             case 2:
                 GroupPassengerHandler.handleGroupPassenger(scanner);
                 break;
+            case 3 :;
+                AdminPassengerHandler.handleAdminPassenger(scanner);
+                break;
             case 0:
                 art.welcomeScreen(7);
                 break;
