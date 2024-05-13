@@ -8,6 +8,7 @@ public class AdminPassengerHandler {
 
     public static void handleAdminPassenger(Scanner scanner) {
         // Prompt for admin password
+        @SuppressWarnings("unused")
         int desiredOption;
         System.out.print("Enter Admin Password: ");
         String password = scanner.next();
