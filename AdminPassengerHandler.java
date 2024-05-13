@@ -11,6 +11,7 @@ public class AdminPassengerHandler {
         @SuppressWarnings("unused")
         int desiredOption;
         Artwork art = new Artwork();
+        System.out.println("Username = Staff Admin");
         System.out.print("Enter Admin Password: ");
         String password = scanner.next();
 
@@ -22,10 +23,10 @@ public class AdminPassengerHandler {
             // Password incorrect, display error message and return to menu
             System.out.println("Incorrect password. Access denied. Do you want to try again or return to main menu ? (Y/N)");
             System.out.println("\n\n\t\t(0) Exit.");
-            System.out.println("\t\t(1) Retry");
-            System.out.println("\t\t(2) Back to main menu\n\n");
+            System.out.println("\t\t(1) Back to main menu");
+            System.out.println("\t\t(2) Retry\n\n");
             System.out.print("Enter the desired option:    ");
-            int ReTry = scanner.next().charAt(0);
+            int ReTry = scanner.nextInt();
 
             switch (ReTry) {
                 case 0:
@@ -36,9 +37,9 @@ public class AdminPassengerHandler {
                     System.out.println("Returning to main menu...\n\n\n");
                     desiredOption = MenuHandler.displayMenuAndGetOption(scanner);
                     break;
-                case 3:
+                case 2:
                     System.out.println("Retry=\n");
-                    scanner.next(); // Clear the invalid input
+                    handleAdminPassenger(scanner); // Restart the process
                     break;
                 default:
                     System.out.println("\nInvalid option. Please enter a valid option.\n");
@@ -50,12 +51,11 @@ public class AdminPassengerHandler {
     }
 
     private static void handlePassengerInput(Scanner scanner) {
-        Artwork art = new Artwork();
+        
 
         // Handle admin passenger check-in
         int numberOfPassengers;
         while (true) {
-            art.welcomeScreen(4);
             System.out.print("\nNumber of Passengers: ");
             try {
                 numberOfPassengers = scanner.nextInt(); // Read the entire line
@@ -99,7 +99,6 @@ public class AdminPassengerHandler {
                                     handleAdminPassenger(scanner); // Restart the process
                                     return;
                                 case 'N':
-                                    art.welcomeScreen(7);
                                     System.exit(0); // Exit the program
                                 default:
                                     System.out.println("Invalid input. Please enter 'Y' or 'N'.");
@@ -117,7 +116,6 @@ public class AdminPassengerHandler {
                                     handleAdminPassenger(scanner); // Restart the process
                                     return;
                                 case 'N':
-                                    art.welcomeScreen(7);
                                     System.exit(0); // Exit the program
                                 default:
                                     System.out.println("Invalid input. Please enter 'Y' or 'N'.");
@@ -169,7 +167,6 @@ public class AdminPassengerHandler {
             SpecialNeedsAssistant assistant = new SpecialNeedsAssistant();
             assistant.specialNeedsAssistance(passenger);
 
-            art.welcomeScreen(2);
             System.out.println("Here's your boarding pass for Passenger " + (i + 1) + ":");
             passenger.displayPassengerDetails();
         }
