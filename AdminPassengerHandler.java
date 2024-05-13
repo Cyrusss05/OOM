@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class AdminPassengerHandler {
 
-    private static final String ADMIN_PASSWORD = "2379"; // Admin password
+    protected static final String ADMIN_PASSWORD = "2379"; // Admin password
 
     public static void handleAdminPassenger(Scanner scanner) {
         // Prompt for admin password
