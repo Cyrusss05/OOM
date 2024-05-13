@@ -40,7 +40,7 @@ public class LuggageHandler {
         if (hasDangerousItems) {
             System.out.println("You can't check in due to the presence of dangerous materials or banned items.");
             System.out.println("Please remove any illegal items and try again.");
-            System.out.println("Do you want to restart the check-in (Y/N)?");
+            System.out.println("Do you want to restart the check-in ?");
 
             char restartChoice = scanner.next().charAt(0);
             if (Character.toUpperCase(restartChoice) == 'Y') {
