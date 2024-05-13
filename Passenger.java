@@ -12,16 +12,29 @@ public class Passenger {
     private String baggageTag;
     private String journey;
     private String bookingNumber;
+    private String seatNumber;
 
 
 
 
-    // Getter and setter for assist
+    // Getter and setter 
     public String getAssist() {
         return specialNeedsAssistance ? "Required" : "Not Required";
     }
 
-    // get tac number 
+    // Constructor
+    public Passenger() {
+        this.seatNumber = "";
+    }
+
+    public String getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(String seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+
     public String getBaggageTag() {
         return baggageTag ;
     }

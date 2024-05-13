@@ -94,6 +94,12 @@ public class SinglePassengerHandler {
         String bookingNumber = scanner.next();
         passenger.setBookingNumber(bookingNumber);
         passenger.setJourney(JourneyGenerator.generateJourney());
+        System.out.println("you are flying from " + passenger.getJourney() );
+
+         // Generate random seat number using RandomSeatGenerator class
+         String seatNumber = RandomSeatGenerator.generateRandomSeatNumber();
+         passenger.setSeatNumber(seatNumber);
+         System.out.println("Your seat number is = " + seatNumber + "\n");
             
 
         System.out.print("Date of Flight (dd/mm/yyyy): ");
