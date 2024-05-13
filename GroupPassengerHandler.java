@@ -101,8 +101,8 @@ public class GroupPassengerHandler {
             String passportNumber;
             while (true) {
                 passportNumber = scanner.next();
-            if (passportNumber.length() != 9) {
-                System.out.println("Passport number must be exactly 9 characters long. Please try again.");
+            if (passportNumber.length() != 8) {
+                System.out.println("Passport number must be exactly 8 characters long. Please try again.");
                 continue;
             }
             break;
