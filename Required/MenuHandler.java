@@ -5,10 +5,10 @@ public class MenuHandler {
     public static int displayMenuAndGetOption(Scanner scanner) {
         int desiredOption;
         while (true) {
-            System.out.println("\n\n\t\t(0) Exit.");
-            System.out.println("\t\t(1) self-service kiosks for Single Passenger Check-in.");
-            System.out.println("\t\t(2) self-service kiosks for Group Passenger Check-in.");
-            System.out.println("\t\t(3) designated counters\n\n");
+            System.out.println("\n(0) Exit.");
+            System.out.println("(1) Self-service kiosks for Single Passenger Check-in.");
+            System.out.println("(2) Self-service kiosks for Group Passenger Check-in.");
+            System.out.println("(3) Designated counters\n\n");
             System.out.print("Enter the desired option:    ");
             try {
                 desiredOption = scanner.nextInt();

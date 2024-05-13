@@ -40,7 +40,7 @@ public class SinglePassengerHandler {
                             }
                         } while (true);
                 }
-                if (age <= 18) {
+                if (age < 18) {
                     char restart1;
                     do {
                         System.out.println("You are underage and can't check in our system.");
@@ -77,7 +77,7 @@ public class SinglePassengerHandler {
         }
         passenger.setGender(genderInput.charAt(0));
 
-        System.out.print("Passport Number of Passenger ");
+        System.out.print("Passport Number of Passenger: ");
             String passportNumber;
             while (true) {
                 passportNumber = scanner.next();
@@ -94,7 +94,7 @@ public class SinglePassengerHandler {
         String bookingNumber = scanner.next();
         passenger.setBookingNumber(bookingNumber);
         passenger.setJourney(JourneyGenerator.generateJourney());
-        System.out.println("you are flying from " + passenger.getJourney() );
+        System.out.println("\nYou are flying from " + passenger.getJourney() );
 
          // Generate random seat number using RandomSeatGenerator class
          String seatNumber = RandomSeatGenerator.generateRandomSeatNumber();
