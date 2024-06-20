@@ -1,5 +1,5 @@
 public class Artwork {
-    void welcomeScreen(int option) {
+    public void welcomeScreen(int option) {
         String artWork;
 
         if (option == 1) {

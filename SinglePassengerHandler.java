@@ -6,6 +6,7 @@ public class SinglePassengerHandler {
     public static void handleSinglePassenger(Scanner scanner) {
         Artwork art = new Artwork();
         Passenger passenger = new Passenger();
+        LuggageHandler luggageHandler = new LuggageHandler();
         // Handle single passenger check-in
         art.welcomeScreen(5);
         System.out.print("\nEnter First Name: ");
@@ -106,7 +107,7 @@ public class SinglePassengerHandler {
         LocalDate dateOfFlight = DateValidator.getValidDate(scanner, "Invalid Date. Please enter valid Date.");
         passenger.setDateOfFlight(dateOfFlight);
         
-        LuggageHandler.handleLuggagePrompt(scanner, passenger); // New: Prompt for luggage handling
+        luggageHandler.handleLuggagePrompt(scanner, passenger); // New: Prompt for luggage handling
 
         SpecialNeedsAssistant assistant = new SpecialNeedsAssistant();
         assistant.specialNeedsAssistance(passenger);
